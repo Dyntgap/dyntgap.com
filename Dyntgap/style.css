@@ -1,6 +1,8 @@
 body{
 	position:relative;
+	font-family:Cabin-Regular,verdana,serif ;
 }
+
 img{
 	height: auto;
 }
@@ -44,7 +46,6 @@ a:link{
 #banner button{
 	background: #0F66A6;
 	color:white;
-	border-radius:5px;
 	height:50px;
 	margin-left:15px;
 }
@@ -105,11 +106,11 @@ a:link{
 
 #footer {
 	background:#002051;
+	padding-left:10%;
 }
 
 #dyntgapduck{
 	padding:3%;
-	padding-left:5%;
 }
 
 #dyntgapduck #name-web{
@@ -121,6 +122,15 @@ a:link{
 	color:white;
 	border:none;
 }
+
+#dyntgapduck a:visited{
+	color:white;
+}
+
+#dyntgapduck a:hover{
+	font-size: 110%;
+}
+
 
 #name-duck{
 	padding-left:4%;
@@ -157,29 +167,37 @@ a:link{
 
 
 .suggestion{
+	padding:3%;
 }
 .suggestion > p{
-	font-size: 120%;
+	font-size: 150%;
+	color:white;
+	margin:0;
 }
+
+.suggestion a:visited{
+	color:white;
+}
+
+.suggestion a:hover{
+	font-size:110%;
+}
+
 .suggestion .list-group-item{
 	background:#002051;
 	color:white;
-	border-left:none;
-	border-right:none;
+	border:none;
+	margin:0;
 }
 .feed-back{
+	padding:3%;
 }
-.feed-back > form > p{
-	font-size: 130%;
-}
-.feed-back  form  textarea, .feed-back  form  input, .feed-back  form  button{
-	border:solid 1px #ddd;
-	border-radius: 5px;
-	padding:2% 5% 2% 5%;
-	color:black;
-}
-.feed-back  form  button{
-	background: #002051;
-	border-radius: 2px;
+.feed-back p{
+	font-size: 150%;
 	color:white;
+	margin:0;
+}
+.feed-back .btn{
+	border-radius:100%;
+	margin-left:2%;
 }
