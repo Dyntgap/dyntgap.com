@@ -1,0 +1,62 @@
+.icon{
+	width: 100%;
+	height: auto;
+}
+h1 {
+	color: #2c3e50
+}
+#title-xstk {
+	color: #02B3E4;
+	font-size: 200%;
+	padding-top: 10%;
+}
+#title-thht {
+	color: white;
+	font-size: 200%;
+	padding-top:10%;
+}
+#describle-thht {
+	border-left-color: white;
+	color:white;
+	padding-left:2%;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+#describle-xstk {
+	border-left-color: #2AF4CD;
+	padding-left:2%;
+	color:#02B3E4;
+	margin-left:2%;
+	margin-right:2%;
+}
+
+#thht .bs-callout {
+    padding: 20px;
+    margin-top: 20px;
+	margin-bottom:20px;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+#xstk .bs-callout {
+    padding: 20px;
+    margin-top: 20px;
+	margin-bottom:20px;
+    border: 1px solid #2AF4CD;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+#subjects .row div {
+	background: #413e6e;
+}
+#subjects .row {
+	background: #413e6e;
+}
+#subjects .row div h4 {
+	color: #fff;
+}
+#subjects .row div p {
+	color: #fff;
+}

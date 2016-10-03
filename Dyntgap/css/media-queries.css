@@ -1,0 +1,69 @@
+/*============================================================
+	For Small Desktop
+==============================================================*/
+
+@media (min-width: 980px) and (max-width: 1150px) {
+
+    /* team */
+    .member-thumb {
+        width: auto;
+    }
+
+}
+
+/*============================================================
+	Tablet (Portrait) Design for a width of 768px
+==============================================================*/
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+    /* team */
+    .member-thumb .overlay h5 {
+        margin: 25px 0;
+    }
+
+    .member-thumb {
+        margin: 0 auto;
+    }
+
+    .team-member{
+        margin-bottom: 15px;
+    }
+}
+
+/*============================================================
+	Mobile (Portrait) Design for a width of 320px
+==============================================================*/
+
+@media only screen and (max-width: 767px) {
+
+    .sec-sub-title p {
+        font-size: 14px;
+    }
+
+    .social-links {
+        margin-top: 20%;
+    }
+
+    /* team */
+    .team-member {
+        margin-bottom: 30px;
+    }
+
+    .team-member:last-child {
+        margin-bottom: 0;
+    }
+
+    .member-thumb {
+        margin: 0 auto;
+    }
+
+}
+
+/*============================================================
+	Mobile (Landscape) Design for a width of 480px
+==============================================================*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}

@@ -1,0 +1,170 @@
+body{
+	position:relative;
+}
+img{
+	height: auto;
+}
+.fix-navbar{
+	background: #002051;
+}
+a:link{
+	color:white;
+	text-decoration: none;
+}
+.nav> li> a, .nav >li > a:hover, .nav > li >a:focus{
+	background: #002051;
+	color:white;
+}
+.nav >li > a:hover{
+	background: rgba(0,0,0,.5);
+}
+.nav .open> a, .nav .open > a:focus, .nav .open > a:hover, .nav .open>a:active,  .nav .open>a:visited{
+	background: #002051;
+	color: white;
+}
+.dropdown-menu > li > a, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:active{
+	background: #ffffff;
+	color: black;
+}
+.navbar-header button{
+	background: white;
+}
+.navbar-header button>span{
+	background: #002051;
+}
+#banner {
+	background:#002051;
+	background-image: url("../Background-header.png");
+}
+#center-header{
+	padding-top:17%;
+	padding-left:28%;
+	padding-bottom:20%;
+}
+#banner button{
+	background: #0F66A6;
+	color:white;
+	border-radius:5px;
+	height:50px;
+	margin-left:15px;
+}
+#center-header #center-logo{
+	margin-left:5%;
+}
+#center-header #subs-btn{
+	padding-right: 2%;
+	margin-top: 3%;
+	margin-bottom:7%;
+}
+
+#subjects{
+	background-image: url("../background-subjects.png");
+	position:relative;
+	overflow: hidden;
+}
+#thht-body, #xstk-body{
+	background:#002051;
+	padding:0;
+	padding-top:6%;
+	margin:0;
+}
+#thht{
+	background:#02B3E4;
+}
+#xstk{
+	background:white;
+}
+.start-position{
+	position:relative;
+	padding-top:10%;
+	padding-left:15%;
+	height:50%;
+	width:50%;
+}
+#thht-img, #xstk-img{
+	position: absolute;
+	bottom:0;
+	right:0;
+}
+
+
+#feedback{
+	padding-top:5%;
+	background:#067AF9;
+}
+
+#feedback #one, #feedback #two, #feedback #three{
+	padding:2%;
+	overflow: hidden;
+}
+
+#aboutus{
+	padding-top:8%;
+}
+
+
+#footer {
+	background:#002051;
+}
+#dyntgapduck{
+	padding:7%;
+}
+#name-duck{
+	padding-left:4%;
+}
+#name-footer{
+	padding-right:8%;
+}
+#info{
+	color:white;
+}
+#info>p{
+	padding-top:3%;
+	font-size:130%;
+}
+#info > p + p{
+	font-size:110%;
+}
+#copyright{
+	background: rgba(0,0,0,.5); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#002051,rgba(0,0,0,1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#002051,rgba(0,0,0,1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#002051,rgba(0,0,0,1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#002051,rgba(0,0,0,1)); /* Standard syntax */
+	color:white;
+	padding-top:1%;
+	padding-bottom:0.5%;
+	font-size:120%;
+}
+#more{
+	color:white;
+	padding: 2%;
+	padding-left:0;
+}
+.suggestion{
+}
+.suggestion > p{
+	font-size: 120%;
+}
+.suggestion .list-group-item{
+	background:#002051;
+	color:white;
+	border-left:none;
+	border-right:none;
+}
+.feed-back{
+}
+.feed-back > form > p{
+	font-size: 130%;
+}
+.feed-back  form  textarea, .feed-back  form  input, .feed-back  form  button{
+	border:solid 1px #ddd;
+	border-radius: 5px;
+	padding:2% 5% 2% 5%;
+	color:black;
+}
+.feed-back  form  button{
+	background: #002051;
+	border-radius: 2px;
+	color:white;
+}
