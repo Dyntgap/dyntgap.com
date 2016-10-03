@@ -106,9 +106,22 @@ a:link{
 #footer {
 	background:#002051;
 }
+
 #dyntgapduck{
-	padding:7%;
+	padding:3%;
+	padding-left:5%;
 }
+
+#dyntgapduck #name-web{
+	font-size: 150%;
+}
+
+#dyntgapduck .list-group-item{
+	background:#002051;
+	color:white;
+	border:none;
+}
+
 #name-duck{
 	padding-left:4%;
 }
@@ -141,6 +154,8 @@ a:link{
 	padding: 2%;
 	padding-left:0;
 }
+
+
 .suggestion{
 }
 .suggestion > p{
