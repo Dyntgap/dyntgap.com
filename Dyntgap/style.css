@@ -94,9 +94,36 @@ a:link{
 	background:#067AF9;
 }
 
-#feedback #one, #feedback #two, #feedback #three{
-	padding:2%;
-	overflow: hidden;
+#feedback p{
+	color:white;
+	font-size:300%;
+}
+
+#feedback i{
+	color:white;
+	font-size:300%;
+}
+
+#feedback .comment{
+	height: 120px;
+	margin-top:50px;
+}
+
+#feedback .comment i{
+	font-size:150%;
+}
+
+#feedback #img-customer{
+}
+
+#feedback #myCarousel{
+	padding-bottom:15%;
+	margin-left:10%;
+	margin-right:10%;
+	width:80%;
+}
+#feedback #carousel-control{
+	background:rgba(0,0,0,0);
 }
 
 #aboutus{
@@ -157,7 +184,7 @@ a:link{
 	color:white;
 	padding-top:1%;
 	padding-bottom:0.5%;
-	font-size:120%;
+	font-size:70%;
 }
 #more{
 	color:white;
