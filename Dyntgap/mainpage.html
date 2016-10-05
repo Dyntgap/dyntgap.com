@@ -11,6 +11,73 @@
   <link rel="stylesheet" href="animate.css">
   <script src="./WOW-master/dist/wow.min.js"></script>
   <script> new WOW().init();</script>
+  
+  <!-- ANIMATION DYNTGAP DUCK -->
+  <meta name="authoring-tool" content="Adobe_Animate_CC">
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script src="dyntgap_duck.js?1475677766410"></script>
+<script>
+var canvas, stage, exportRoot;
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt) {	
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.dyntgap_duck();
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);	
+	//Registers the "tick" event listener.
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);	    
+	//Code to support hidpi screens and responsive scaling.
+	(function(isResp, respDim, isScale, scaleType) {		
+		var lastW, lastH, lastS=1;		
+		window.addEventListener('resize', resizeCanvas);		
+		resizeCanvas();		
+		function resizeCanvas() {			
+			var w = lib.properties.width, h = lib.properties.height;			
+			var iw = window.innerWidth, ih=window.innerHeight;			
+			var pRatio = window.devicePixelRatio, xRatio=iw/w, yRatio=ih/h;
+			var sRatio = 1;
+			if(isResp) {                
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+					sRatio = lastS;                
+				}				
+				else if(!isScale) {					
+					if(iw<w || ih<h)						
+						sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==1) {					
+					sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==2) {					
+					sRatio = Math.max(xRatio, yRatio);				
+				}			
+			}			
+			canvas.width = w*pRatio*sRatio;			
+			canvas.height = h*pRatio*sRatio;
+			canvas.style.width = w*sRatio+'px';			
+			canvas.style.height = h*sRatio+'px';
+			stage.scaleX = pRatio*sRatio;			
+			stage.scaleY = pRatio*sRatio;			
+			lastW = iw; lastH = ih; lastS = sRatio;		
+		}
+	})(true,'both',false,1);	
+}
+</script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 
@@ -32,7 +99,7 @@
   <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/linh.css">
  </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="50"  onload="init();" style="margin:0px;">
 	<nav class="navbar navbar-fixed-top fix-navbar">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -296,7 +363,7 @@
  
  
 	<div id="footer" class="container-fluid">
-		<div id="dyntgapduck" class="col-sm-3">
+		<div id="dyntgapduck" class="col-sm-4">
 			<!--<div id="name-duck" class="col-sm-12 wow fadeInLeft" data-wow-duration="2s" data-wow-offset="100">
 				<img src="../logo-footer.png" id="name-footer" style="width: 70%">
 				<img src="../Dyntgap_Duck.png" style="width: 20%">
@@ -312,7 +379,10 @@
 					Facebook: fb.com/dyntgap | Email: dyntgap@gmail.com
 				</p>
 			</div>-->
-			<a id="name-web" href="#">Dyntgap</a>
+			<div id="duck-animation">
+				<canvas id="canvas" style="display: block; background-color:rgba(0, 32, 81, 1.00);margin-top:-3%;margin-left:-8%;"></canvas>
+			</div>
+			<a id="name-web" href="#">Các môn học</a>
 			<ul class="list-group" style="margin-left:10%">
 				<li class="list-group-item col-sm-12"><a href="#thht-body">Tín hiệu hệ thống</a></li>
 				<li class="list-group-item col-sm-12"><a href="#xstk-body">Xác suất thống kê</a></li>
@@ -320,7 +390,7 @@
 		</div>
 	 
 	 
-		<div class="suggestion col-sm-4">
+		<div class="suggestion col-sm-3">
 			<p>Tham khảo</p>
 			<ul class="list-group" style="margin-left:10%">
 				<li class="list-group-item col-sm-12"><a href="https://www.facebook.com/holi0411">Các công thức THHT và XSTK</a></li>
@@ -329,56 +399,32 @@
 			</ul>
 		</div>
 		<div class="feed-back col-sm-4">
-			<p>Liên lạc</p>
-			<a class="btn btn-social-icon btn-facebook" style="background:white;width:42px;height:43px">
-				<i class="fa fa-facebook" style="font-size:200%"></i>
-			</a>
-			<a class="btn btn-social-icon btn-twitter" style="background:white;width:42px;height:43px">
-				<span class="fa fa-twitter" style="font-size:200%;margin-left:-4px;padding-top:5%"></span>
-			</a>
-			<a class="btn btn-social-icon btn-google" style="background:white;width:42px;height:43px">
-				<span class="fa fa-google" style="font-size:200%;margin-left:-3px;padding-top:10%"></span>
-			</a>
+			<div id="follow">
+				<p> Đăng ký theo dõi</p>
+				<form class="form-inline">
+					<input type="text" class="form-control col-sm-3" placeholder="Email">
+					<button class="form-control btn col-sm-1 active">Đăng ký</button>
+				</form>
+			</div>
+			<div style="clear:both"></div>
+			<p style="font-size:100%">hoặc</p>
+			<div id="contact">
+				<a class="btn btn-social-icon btn-facebook">
+					<i class="fa fa-facebook" style="font-size:160%; margin-top:2px;"></i>
+				</a>
+				<a class="btn btn-social-icon btn-pinterest">
+					<span class="fa fa-pinterest" style="font-size:160%;margin-left:-2px;padding-top:5%"></span>
+				</a>
+				<a class="btn btn-social-icon btn-google">
+					<span class="fa fa-google" style="font-size:160%;margin-left:-3px;margin-top:5%"></span>
+				</a>
+			</div>
 		</div>
 		<div style="clear:both"></div>
+		
 	</div>
 		<div id="copyright" class="text-center">
 			<p>Copyright © 2016 Dyntgap</p>
 		</div>
 </body>
- 
-<script>
-	$(document).ready(function(){
-	if ($("#thht").offset().top *100/ $(window).scrollTop()<=180){
-		$("#thht-img").animate({
-			right: "73%",
-			width: "25%",
-			bottom: "75%"
-		},2000);
-	}
-	if ($("#xstk").offset().top *100/ $(window).scrollTop()<=180){
-		$("#xstk-img").animate({
-			right: "73%",
-			width: "25%",
-			bottom: "75%"
-		},2000);
-	}
-	$(window).scroll(function(){
-		if ($("#thht").offset().top *100/ $(window).scrollTop()<=180){
-			$("#thht-img").animate({
-				right: "73%",
-				width: "25%",
-				bottom: "75%"
-			},2000);
-		}
-		if ($("#xstk").offset().top *100/ $(window).scrollTop()<=180){
-			$("#xstk-img").animate({
-				right: "73%",
-				width: "25%",
-				bottom: "75%"
-			},2000);
-		}
-	});
-	});
-</script>
  </html>

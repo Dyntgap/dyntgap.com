@@ -3,6 +3,11 @@ body{
 	font-family:Cabin-Regular,verdana,serif ;
 }
 
+.navbar{
+	height:10%;
+	padding:0.5%;
+}
+
 img{
 	height: auto;
 }
@@ -66,7 +71,7 @@ a:link{
 #thht-body, #xstk-body{
 	background:#002051;
 	padding:0;
-	padding-top:6%;
+	padding-top:5%;
 	margin:0;
 }
 #thht{
@@ -90,7 +95,7 @@ a:link{
 
 
 #feedback{
-	padding-top:5%;
+	padding-top:7%;
 	background:#067AF9;
 }
 
@@ -141,13 +146,16 @@ a:link{
 }
 
 #dyntgapduck #name-web{
-	font-size: 150%;
+	font-size: 100%;
 }
 
 #dyntgapduck .list-group-item{
 	background:#002051;
 	color:white;
 	border:none;
+	font-size:80%;
+	padding:0;
+	padding-top:10px;
 }
 
 #dyntgapduck a:visited{
@@ -197,7 +205,7 @@ a:link{
 	padding:3%;
 }
 .suggestion > p{
-	font-size: 150%;
+	font-size: 100%;
 	color:white;
 	margin:0;
 }
@@ -215,16 +223,41 @@ a:link{
 	color:white;
 	border:none;
 	margin:0;
+	font-size:80%;
+	padding:0;
+	padding-top:10px;
 }
 .feed-back{
 	padding:3%;
 }
 .feed-back p{
-	font-size: 150%;
+	font-size: 100%;
 	color:white;
 	margin:0;
 }
-.feed-back .btn{
-	border-radius:100%;
+.feed-back #contact .btn{
+	background:white;
+	color:#002051;
 	margin-left:2%;
+}
+.feed-back #contact{
+	margin-left:7%;
+	margin-top:2%;
+}
+.feed-back #follow{
+	margin-bottom:5%;
+}
+.feed-back form{
+	margin-left:7%;
+	margin-top:2%;
+}
+.feed-back form button{
+	border-radius:0;
+	background:#0F66A6;
+	color:white;
+}
+
+.feed-back input{
+	border-radius:0px;
+	font-size:80%;
 }
