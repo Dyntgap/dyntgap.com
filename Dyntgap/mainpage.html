@@ -1,34 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dyntgap</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.min.css">
-	<script src="./bootstrap-3.3.7/jquery/jquery.min.js"></script>
-	<script src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="bootstrap-social-gh-pages/bootstrap-social.css">
-	<link rel="stylesheet" href="animate.css">
-	<script src="./WOW-master/dist/wow.min.js"></script>
-	<script> new WOW().init();</script>
+  <title>Dyntgap</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.min.css">
+  <script src="./bootstrap-3.3.7/jquery/jquery.min.js"></script>
+  <script src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="bootstrap-social-gh-pages/bootstrap-social.css">
+  <link rel="stylesheet" href="animate.css">
+  <script src="./WOW-master/dist/wow.min.js"></script>
+  <script> new WOW().init();</script>
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <!-- ANIMATION DYNTGAP DUCK -->
+  <meta name="authoring-tool" content="Adobe_Animate_CC">
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script src="dyntgap_duck.js?1475677766410"></script>
+<script>
+var canvas, stage, exportRoot;
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+function handleComplete(evt) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.dyntgap_duck();
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	//Registers the "tick" event listener.
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+	//Code to support hidpi screens and responsive scaling.
+	(function(isResp, respDim, isScale, scaleType) {
+		var lastW, lastH, lastS=1;
+		window.addEventListener('resize', resizeCanvas);
+		resizeCanvas();
+		function resizeCanvas() {
+			var w = lib.properties.width, h = lib.properties.height;
+			var iw = window.innerWidth, ih=window.innerHeight;
+			var pRatio = window.devicePixelRatio, xRatio=iw/w, yRatio=ih/h;
+			var sRatio = 1;
+			if(isResp) {
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+					sRatio = lastS;
+				}
+				else if(!isScale) {
+					if(iw<w || ih<h)
+						sRatio = Math.min(xRatio, yRatio);
+				}
+				else if(scaleType==1) {
+					sRatio = Math.min(xRatio, yRatio);
+				}
+				else if(scaleType==2) {
+					sRatio = Math.max(xRatio, yRatio);
+				}
+			}
+			canvas.width = w*pRatio*sRatio;
+			canvas.height = h*pRatio*sRatio;
+			canvas.style.width = w*sRatio+'px';
+			canvas.style.height = h*sRatio+'px';
+			stage.scaleX = pRatio*sRatio;
+			stage.scaleY = pRatio*sRatio;
+			lastW = iw; lastH = ih; lastS = sRatio;
+		}
+	})(true,'both',false,1);
+}
+</script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-	<!-- Twitter Bootstrap css -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Twitter Bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<!-- animate -->
-	<!-- media-queries -->
-	<link rel="stylesheet" href="css/media-queries.css">
+    <!-- animate -->
+    <!-- media-queries -->
+    <link rel="stylesheet" href="css/media-queries.css">
 
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-	<!-- Fontawesome Icon font -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="css/linh.css">
@@ -40,330 +106,328 @@
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#banner"><img src="../logo.png" style="margin-top:-7%"></a>
+		 <a class="navbar-brand" href="#banner"><img src="../logo.png" style="margin-top:-7%"></a>
 		</div>
 		<div>
-			<div class="collapse navbar-collapse text-left" id="myNavbar">
-				<ul class="nav navbar-nav" style="color:white">
-					<li><a class="btn" href="#thht-body">Các môn học</a></li>
-					<li><a class="btn" href="#feedback">Phản hồi</a></li>
-					<li><a class="btn" href="#aboutus">Về chúng tôi</a></li>
-					<li><a class="btn" href="#footer">Và nhiều hơn nữa...</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right" style="color:white">
-					<li><a class="btn login-window button" href="#login-box">Đăng nhập</a></li>
-					<li><a class="btn" href="#">Đăng ký</a></li>
-				</ul>
+		  <div class="collapse navbar-collapse text-left" id="myNavbar">
+			<ul class="nav navbar-nav" style="color:white">
+			  <li><a class="btn" href="#thht-body">Các môn học</a></li>
+			  <li><a class="btn" href="#feedback">Phản hồi</a></li>
+			  <li><a class="btn" href="#aboutus">Về chúng tôi</a></li>
+			  <li><a class="btn" href="#footer">Và nhiều hơn nữa...</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right" style="color:white">
+			  <li><a class="btn" href="#">Đăng nhập</a></li>
+			  <li><a class="btn" href="#">Đăng ký</a></li>
+			</ul>
+		  </div>
+		</div>
+	</div>
+	</nav>
+ 
+	<div id="banner">
+		<div id="center-header">
+			<div id="center-logo">
+				<img src="../Logo-header.png" style="width: 50%">
+			</div>
+			<div id="subs-btn">
+				<button class="btn col-sm-3"><span>Tín hiệu hệ thống</span></button>
+				<button class="btn col-sm-offset-1 col-sm-3"><span>Xác suất thống kê</span></button>
 			</div>
 		</div>
 	</div>
-</nav>
-<div class="login main" id="login-box">
-	<h2 >Đăng Nhập</h2>
-
-	<a class="close" href="#"><img class="img-close" title="Close Window" alt="Close" src="close.png" /></a>
-	<form class="login-content" action="#" method="post">
-		<label class="username row">
-			<span >Tên hoặc email</span>
-			<input id="username" type="text" autocomplete="on" name="username" placeholder="Username" value="" />
-		</label>
-		<label class="password">
-			<span>Mật khẩu</span>
-			<input id="password" type="password" name="password" placeholder="Password" value="" />
-		</label>
-		<button class="button submit-button" type="button">Đăng nhập</button>
-
-		<a class="forgot" href="#">Quên mật khẩu?</a></form>
-</div>
-<div id="banner">
-	<div id="center-header">
-		<div id="center-logo">
-			<img src="../Logo-header.png" style="width: 50%">
+ 
+ 
+	<!--<div id="subjects">
+		<div id="thht-body" class="col-sm-6">
+			<div id="thht">
+				<div class="start-position">
+				<img id="thht-img" src="../thht.png" style="width: 50%">
+				</div>
+			</div>
 		</div>
-		<div id="subs-btn">
-			<button class="btn col-sm-3"><span>Tín hiệu hệ thống</span></button>
-			<button class="btn col-sm-offset-1 col-sm-3"><span>Xác suất thống kê</span></button>
+		<div id="xstk-body" class="col-sm-6">
+			<div id="xstk">
+				<div class="start-position">
+				<img id="xstk-img" src="../xstk.png" style="width: 50%">
+				</div>
+			</div>
+		</div>
+	</div>-->
+	<div id="subjects">
+		<div id="thht-body" class="col-sm-6">
+			<div id="thht">
+				<!-- icon thht -->
+				<div class="wow bounceInDown col-sm-3" style="max-width:200px">  
+					<a href="#">
+						<img src="../thht.png" alt="thht" style="width:70%">
+					</a>
+				</div>
+				<!-- Tiêu đề vs nút đăng ký -->
+				<div class=" wow pulse col-sm-8" style="max-width:320px"> 
+					<h1  id="title-thht"> Tín hiệu hệ thống </h1>
+				</div> 
+				<div style="clear:both"></div>
+				<div class="wow bounceInLeft bs-callout" id="describle-thht"> 
+					<h4>Don't mix with other components</h4> 
+						<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested 
+						and apply the icon classes to the 
+						</p> 
+				</div>
+				<div class="wow bounceInLeft bs-callout" id="describle-thht"> 
+					<h4>Don't mix with other components</h4> 
+						<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested 
+						and apply the icon classes to the 
+						</p> 
+				</div>
+				<div class="text-center" style="padding-bottom:5%">
+					<button type="button" class="btn" style="background:white;height:50px;width:250px;color:#02B3E4">Bắt đầu học</button>
+				</div>
+			</div>
+		</div>
+		<div id="xstk-body" class="col-sm-6">
+			<div id="xstk">
+				<!-- icon xstk -->
+				<div class="wow bounceInDown col-sm-3" style="max-width:200px;margin:0">  
+					<a href="#">
+						<img src="../xstk.png" alt="study" style="width:70%">
+					</a>
+				</div>
+				<!-- Tiêu đề vs nút đăng ký -->
+				<div class=" wow pulse col-sm-8" style="max-width:320px"> 
+					<h1  id="title-xstk"> Xác suất thống kê </h1>
+				</div> 						
+				<div style="clear:both"></div>
+				<div class="wow bounceInRight bs-callout" id="describle-xstk"> 
+					<h4>Don't mix with other components</h4> 
+						<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested 
+						and apply the icon classes to the 
+						</p> 
+				</div>
+				<div class="wow bounceInRight bs-callout" id="describle-xstk"> 
+					<h4>Don't mix with other components</h4> 
+						<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested 
+						and apply the icon classes to the 
+						</p> 
+				</div>
+				<div class="text-center" style="padding-bottom:5%">
+					<button type="button" class="btn" style="background:#02B3E4;height:50px;width:250px;color:white">Bắt đầu học</button>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+	
+  
+  
+	<div id="feedback" class="text-center">
+		<p>Mọi người nói gì?</p>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
 
+		  <!-- Wrapper for slides -->
+			<div class="carousel-inner text-center" role="listbox">
+				<div class="item active">
+					<div class="comment"><i>Đây thật là một trang web bổ ích. Nhờ học trên web mà mình đã không còn sợ hai môn Tín hiệu hệ thống và Xác suất thống kê nữa.</i></div>
+					<div class="img-customer text-center">
+						<img src="../customer1.png" alt="Chania">
+					</div>
+				</div>
 
-<!--<div id="subjects">
-    <div id="thht-body" class="col-sm-6">
-        <div id="thht">
-            <div class="start-position">
-            <img id="thht-img" src="../thht.png" style="width: 50%">
+				<div class="item">
+					<div class="comment"><i>Nhờ có trang web này mà mình đã được A+ THHT. Kỳ này chắc chắn mình sẽ được học bổng.</i></div>
+					<div class="img-customer text-center">
+						<img src="../customer2.png" alt="Chania">
+					</div>
+				</div>
+			</div>
+			
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="background:rgba(0,0,0,0)">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="background:rgba(0,0,0,0)">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+			
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+			</ol>
+		</div>
+	</div>
+  
+  <!--
+        Team mems
+        -->
+	<div id="aboutus">
+    <div id="team" class="team">
+        <div class="container">
+            <div class="row">
+
+                <div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
+                    <h2 class="team-header">Những giáo viên hàng đầu</h2>
+                    <div class="divider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                <div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
+                    <p class="team-paragraph">Chất lượng và sự tận tình của giáo viên luôn là ưu tiên hàng đầu của chúng tôi</p>
+                </div>
+
+                <!-- single member -->
+                <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
+                    <div class="member-thumb">
+                        <img src="img/team/member-1.png" alt="Team Member" class="img-responsive">
+                        <figcaption class="overlay">
+                            <h5 class="team-header">Chỉ là mình thích thôi!</h5>
+                            <p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
+                            <ul class="social-links text-center">
+                                <li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
+                                <li><a href="" class="btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </div>
+                    <h4 class="team-header">Prof. Hoang Linh</h4>
+                    <span>Rector</span>
+                </figure>
+                <!-- end single member -->
+
+                <!-- single member -->
+                <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="member-thumb">
+                        <img src="img/team/member-2.png" alt="Team Member" class="img-responsive">
+                        <figcaption class="overlay">
+                            <h5 class="team-header">Chỉ là mình thích thôi!</h5>
+                            <p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
+                            <ul class="social-links text-center">
+                                <li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
+                                <li><a href="" class="btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </div>
+                    <h4 class="team-header">Prof. Dr. Linh Vu</h4>
+                    <span>Vice-Rectors</span>
+                </figure>
+                <!-- end single member -->
+
+                <!-- single member -->
+                <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
+                    <div class="member-thumb">
+                        <img src="img/team/member-3.png" alt="Team Member" class="img-responsive">
+                        <figcaption class="overlay">
+                            <h5 class="team-header">Chỉ là mình thích thôi!</h5>
+                            <p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
+                            <ul class="social-links text-center">
+                                <li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
+                                <li><a href="" class="btn-faceboo btn-link-socialk"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </div>
+                    <h4 class="team-header">Prof. Dr. Khanh Nguyen</h4>
+                    <span>Vice-Rectors</span>
+                </figure>
+                <!-- end single member -->
+
+                <!-- single member -->
+                <figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
+                    <div class="member-thumb">
+                        <img src="img/team/member-1.png" alt="Team Member" class="img-responsive">
+                        <figcaption class="overlay">
+                            <h5 class="team-header">Chỉ là mình thích thôi!</h5>
+                            <p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
+                            <ul class="social-links text-center">
+                                <li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
+                                <li><a href="" class="btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                            </ul>
+                        </figcaption>
+                    </div>
+                    <h4 class="team-header">Assoc. Prof. Pham Hung</h4>
+                    <span>Vice-Rectors</span>
+                </figure>
+                <!-- end single member -->
+
             </div>
         </div>
     </div>
-    <div id="xstk-body" class="col-sm-6">
-        <div id="xstk">
-            <div class="start-position">
-            <img id="xstk-img" src="../xstk.png" style="width: 50%">
-            </div>
-        </div>
-    </div>
-</div>-->
-<div id="subjects">
-	<div id="thht-body" class="col-sm-6">
-		<div id="thht">
-			<!-- icon thht -->
-			<div class="wow bounceInDown col-sm-3" style="max-width:200px">
-				<a href="#">
-					<img src="../thht.png" alt="thht" style="width:70%">
-				</a>
+	</div>
+    <!--
+    End Meet Our Team
+    ==================================== -->
+ 
+ 
+	<div id="footer" class="container-fluid">
+		<div id="dyntgapduck" class="col-sm-4">
+			<!--<div id="name-duck" class="col-sm-12 wow fadeInLeft" data-wow-duration="2s" data-wow-offset="100">
+				<img src="../logo-footer.png" id="name-footer" style="width: 70%">
+				<img src="../Dyntgap_Duck.png" style="width: 20%">
 			</div>
-			<!-- Tiêu đề vs nút đăng ký -->
-			<div class=" wow pulse col-sm-8" style="max-width:320px">
-				<h1  id="title-thht"> Tín hiệu hệ thống </h1>
+			<div id="line-below-duck" class="col-sm-12">
+				<img src="../Line.png" style="width: 90%">
+			</div>
+			<div id="info" class="col-sm-12">
+				<p>
+					Website tự học Tín hiệu hệ thống và Xác suất thống kê
+				</p>
+				<p>
+					Facebook: fb.com/dyntgap | Email: dyntgap@gmail.com
+				</p>
+			</div>-->
+			<div id="duck-animation">
+				<canvas id="canvas" style="display: block; background-color:rgba(0, 32, 81, 1.00);margin-top:-3%;margin-left:-8%;"></canvas>
+			</div>
+			<a id="name-web" href="#">Các môn học</a>
+			<ul class="list-group" style="margin-left:10%">
+				<li class="list-group-item col-sm-12"><a href="#thht-body">Tín hiệu hệ thống</a></li>
+				<li class="list-group-item col-sm-12"><a href="#xstk-body">Xác suất thống kê</a></li>
+			</ul>
+		</div>
+
+
+		<div class="suggestion col-sm-3">
+			<p>Tham khảo</p>
+			<ul class="list-group" style="margin-left:10%">
+				<li class="list-group-item col-sm-12"><a href="https://www.facebook.com/holi0411">Các công thức THHT và XSTK</a></li>
+				<li class="list-group-item col-sm-12"><a href="https://www.designzillas.com/">Một số dạng bài tập THHT</a></li>
+				<li class="list-group-item col-sm-12"><a href="http://www.dnawebagency.com/">Một số dạng bài tập XSTK</a></li>
+			</ul>
+		</div>
+		<div class="feed-back col-sm-4">
+			<div id="follow">
+				<p> Đăng ký theo dõi</p>
+				<form class="form-inline">
+					<input type="text" class="form-control col-sm-3" placeholder="Email">
+					<button class="form-control btn col-sm-1 active">Đăng ký</button>
+				</form>
 			</div>
 			<div style="clear:both"></div>
-			<div class="wow bounceInLeft bs-callout" id="describle-thht">
-				<h4>Don't mix with other components</h4>
-				<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested
-					and apply the icon classes to the
-				</p>
-			</div>
-			<div class="wow bounceInLeft bs-callout" id="describle-thht">
-				<h4>Don't mix with other components</h4>
-				<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested
-					and apply the icon classes to the
-				</p>
-			</div>
-			<div class="text-center" style="padding-bottom:5%">
-				<button type="button" class="btn" style="background:white;height:50px;width:250px;color:#02B3E4">Bắt đầu học</button>
-			</div>
-		</div>
-	</div>
-	<div id="xstk-body" class="col-sm-6">
-		<div id="xstk">
-			<!-- icon xstk -->
-			<div class="wow bounceInDown col-sm-3" style="max-width:200px;margin:0">
-				<a href="#">
-					<img src="../xstk.png" alt="study" style="width:70%">
+			<p style="font-size:100%">hoặc</p>
+			<div id="contact">
+				<a class="btn btn-social-icon btn-facebook">
+					<i class="fa fa-facebook" style="font-size:160%; margin-top:2px;"></i>
+				</a>
+				<a class="btn btn-social-icon btn-pinterest">
+					<span class="fa fa-pinterest" style="font-size:160%;margin-left:-2px;padding-top:5%"></span>
+				</a>
+				<a class="btn btn-social-icon btn-google">
+					<span class="fa fa-google" style="font-size:160%;margin-left:-3px;margin-top:5%"></span>
 				</a>
 			</div>
-			<!-- Tiêu đề vs nút đăng ký -->
-			<div class=" wow pulse col-sm-8" style="max-width:320px">
-				<h1  id="title-xstk"> Xác suất thống kê </h1>
-			</div>
-			<div style="clear:both"></div>
-			<div class="wow bounceInRight bs-callout" id="describle-xstk">
-				<h4>Don't mix with other components</h4>
-				<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested
-					and apply the icon classes to the
-				</p>
-			</div>
-			<div class="wow bounceInRight bs-callout" id="describle-xstk">
-				<h4>Don't mix with other components</h4>
-				<p>Icon classes cannot be directly combined with other components. They should not be used along with other classes on the same element. Instead, add a nested
-					and apply the icon classes to the
-				</p>
-			</div>
-			<div class="text-center" style="padding-bottom:5%">
-				<button type="button" class="btn" style="background:#02B3E4;height:50px;width:250px;color:white">Bắt đầu học</button>
-			</div>
 		</div>
+		<div style="clear:both"></div>
+
 	</div>
-</div>
-
-
-
-<div id="feedback" class="text-center">
-	<p>Mọi người nói gì?</p>
-	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner text-center" role="listbox">
-			<div class="item active">
-				<div class="comment"><i>Đây thật là một trang web bổ ích. Nhờ học trên web mà mình đã không còn sợ hai môn Tín hiệu hệ thống và Xác suất thống kê nữa.</i></div>
-				<div class="img-customer text-center">
-					<img src="../customer1.png" alt="Chania">
-				</div>
-			</div>
-
-			<div class="item">
-				<div class="comment"><i>Nhờ có trang web này mà mình đã được A+ THHT. Kỳ này chắc chắn mình sẽ được học bổng.</i></div>
-				<div class="img-customer text-center">
-					<img src="../customer2.png" alt="Chania">
-				</div>
-			</div>
+		<div id="copyright" class="text-center">
+			<p>Copyright © 2016 Dyntgap</p>
 		</div>
-
-		<!-- Left and right controls -->
-		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="background:rgba(0,0,0,0)">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="background:rgba(0,0,0,0)">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-		</ol>
-	</div>
-</div>
-
-<!--
-      Team mems
-      -->
-<div id="aboutus">
-	<div id="team" class="team">
-		<div class="container">
-			<div class="row">
-
-				<div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
-					<h2 class="team-header">Những giáo viên hàng đầu</h2>
-					<div class="divider"><i class="fa fa-heart-o fa-lg"></i></div>
-				</div>
-
-				<div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
-					<p class="team-paragraph">Chất lượng và sự tận tình của giáo viên luôn là ưu tiên hàng đầu của chúng tôi</p>
-				</div>
-
-				<!-- single member -->
-				<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
-					<div class="member-thumb">
-						<img src="img/team/member-1.png" alt="Team Member" class="img-responsive">
-						<figcaption class="overlay">
-							<h5 class="team-header">Chỉ là mình thích thôi!</h5>
-							<p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
-							<ul class="social-links text-center">
-								<li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
-								<li><a href="" class="btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
-							</ul>
-						</figcaption>
-					</div>
-					<h4 class="team-header">Prof. Hoang Linh</h4>
-					<span>Rector</span>
-				</figure>
-				<!-- end single member -->
-
-				<!-- single member -->
-				<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
-					<div class="member-thumb">
-						<img src="img/team/member-2.png" alt="Team Member" class="img-responsive">
-						<figcaption class="overlay">
-							<h5 class="team-header">Chỉ là mình thích thôi!</h5>
-							<p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
-							<ul class="social-links text-center">
-								<li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
-								<li><a href="" class="btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
-							</ul>
-						</figcaption>
-					</div>
-					<h4 class="team-header">Prof. Dr. Linh Vu</h4>
-					<span>Vice-Rectors</span>
-				</figure>
-				<!-- end single member -->
-
-				<!-- single member -->
-				<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
-					<div class="member-thumb">
-						<img src="img/team/member-3.png" alt="Team Member" class="img-responsive">
-						<figcaption class="overlay">
-							<h5 class="team-header">Chỉ là mình thích thôi!</h5>
-							<p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
-							<ul class="social-links text-center">
-								<li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
-								<li><a href="" class="btn-faceboo btn-link-socialk"><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
-							</ul>
-						</figcaption>
-					</div>
-					<h4 class="team-header">Prof. Dr. Khanh Nguyen</h4>
-					<span>Vice-Rectors</span>
-				</figure>
-				<!-- end single member -->
-
-				<!-- single member -->
-				<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
-					<div class="member-thumb">
-						<img src="img/team/member-1.png" alt="Team Member" class="img-responsive">
-						<figcaption class="overlay">
-							<h5 class="team-header">Chỉ là mình thích thôi!</h5>
-							<p class="team-paragraph">Mình muốn giúp các bạn được học bổng 3 năm liền như mình.</p>
-							<ul class="social-links text-center">
-								<li><a href="" class="btn-github btn-link-social"><i class="fa fa-github fa-lg"></i></a></li>
-								<li><a href="" class="btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
-								<li><a href="" class="btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
-							</ul>
-						</figcaption>
-					</div>
-					<h4 class="team-header">Assoc. Prof. Pham Hung</h4>
-					<span>Vice-Rectors</span>
-				</figure>
-				<!-- end single member -->
-
-			</div>
-		</div>
-	</div>
-</div>
-<!--
-End Meet Our Team
-==================================== -->
-
-
-<div id="footer" class="container-fluid">
-	<div id="dyntgapduck" class="col-sm-3">
-		<!--<div id="name-duck" class="col-sm-12 wow fadeInLeft" data-wow-duration="2s" data-wow-offset="100">
-            <img src="../logo-footer.png" id="name-footer" style="width: 70%">
-            <img src="../Dyntgap_Duck.png" style="width: 20%">
-        </div>
-        <div id="line-below-duck" class="col-sm-12">
-            <img src="../Line.png" style="width: 90%">
-        </div>
-        <div id="info" class="col-sm-12">
-            <p>
-                Website tự học Tín hiệu hệ thống và Xác suất thống kê
-            </p>
-            <p>
-                Facebook: fb.com/dyntgap | Email: dyntgap@gmail.com
-            </p>
-        </div>-->
-		<a id="name-web" href="#">Dyntgap</a>
-		<ul class="list-group" style="margin-left:10%">
-			<li class="list-group-item col-sm-12"><a href="#thht-body">Tín hiệu hệ thống</a></li>
-			<li class="list-group-item col-sm-12"><a href="#xstk-body">Xác suất thống kê</a></li>
-		</ul>
-	</div>
-
-
-	<div class="suggestion col-sm-4">
-		<p>Tham khảo</p>
-		<ul class="list-group" style="margin-left:10%">
-			<li class="list-group-item col-sm-12"><a href="https://www.facebook.com/holi0411">Các công thức THHT và XSTK</a></li>
-			<li class="list-group-item col-sm-12"><a href="https://www.designzillas.com/">Một số dạng bài tập THHT</a></li>
-			<li class="list-group-item col-sm-12"><a href="http://www.dnawebagency.com/">Một số dạng bài tập XSTK</a></li>
-		</ul>
-	</div>
-	<div class="feed-back col-sm-4">
-		<p>Liên lạc</p>
-		<a class="btn btn-social-icon btn-facebook" style="background:white;width:42px;height:43px">
-			<i class="fa fa-facebook" style="font-size:200%"></i>
-		</a>
-		<a class="btn btn-social-icon btn-twitter" style="background:white;width:42px;height:43px">
-			<span class="fa fa-twitter" style="font-size:200%;margin-left:-4px;padding-top:5%"></span>
-		</a>
-		<a class="btn btn-social-icon btn-google" style="background:white;width:42px;height:43px">
-			<span class="fa fa-google" style="font-size:200%;margin-left:-3px;padding-top:10%"></span>
-		</a>
-	</div>
-	<div style="clear:both"></div>
-</div>
-<div id="copyright" class="text-center">
-	<p>Copyright © 2016 Dyntgap</p>
-</div>
 </body>
 
 <!--linhrf-->
