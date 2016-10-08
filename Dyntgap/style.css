@@ -2,28 +2,22 @@ body{
 	position:relative;
 	font-family:Cabin-Regular,verdana,serif ;
 }
-
-.navbar{
-	height:10%;
-	padding:0.5%;
-}
-
 img{
 	height: auto;
 }
 .fix-navbar{
-	background: #002051;
+	background: #17234F;
 }
 a:link{
 	color:white;
 	text-decoration: none;
 }
 .nav> li> a, .nav >li > a:hover, .nav > li >a:focus{
-	background: #002051;
+	//background: #002051;
 	color:white;
 }
 .nav >li > a:hover{
-	background: rgba(0,0,0,.5);
+	background: rgba(0,0,0,.2);
 }
 .nav .open> a, .nav .open > a:focus, .nav .open > a:hover, .nav .open>a:active,  .nav .open>a:visited{
 	background: #002051;
@@ -40,13 +34,9 @@ a:link{
 	background: #002051;
 }
 #banner {
-	background:#002051;
-	background-image: url("../Background-header.png");
+	//background:#002051;
 }
 #center-header{
-	padding-top:17%;
-	padding-left:28%;
-	padding-bottom:20%;
 }
 #banner button{
 	background: #0F66A6;
@@ -64,22 +54,48 @@ a:link{
 }
 
 #subjects{
-	background-image: url("../background-subjects.png");
+	//background-image: url("../background-subjects.png");
 	position:relative;
 	overflow: hidden;
+	padding-top:4%;
 }
 #thht-body, #xstk-body{
-	background:#002051;
+	//background:#002051;
 	padding:0;
-	padding-top:5%;
+	padding-top:4%;
+	padding-bottom:6%;
 	margin:0;
 }
 #thht{
-	background:#02B3E4;
+	background:#27906A;
 }
 #xstk{
-	background:white;
+	background:#3A5FAC;
 }
+#thht button{
+	background:white;
+	height:50px;
+	width:250px;
+	color:#27906A;
+	font-size:120%;
+}
+#thht button:hover{
+	width:275px;
+	font-size:130%;
+}
+
+#xstk button{
+	background:white;
+	height:50px;
+	width:250px;
+	font-size:120%;
+	color:#3A5FAC;
+}
+#xstk button:hover{
+	width:275px;
+	font-size:130%;
+}
+
 .start-position{
 	position:relative;
 	padding-top:10%;
@@ -95,44 +111,35 @@ a:link{
 
 
 #feedback{
-	padding-top:7%;
-	background:#067AF9;
+	padding-top:5%;
+	padding-bottom:3%;
+	background:#F1F1F1;
 }
 
-#feedback p{
-	color:white;
-	font-size:300%;
+#feedback #one, #feedback #two, #feedback #three{
+	padding:2%;
+	overflow: hidden;
 }
 
-#feedback i{
-	color:white;
-	font-size:300%;
+#feedback #comment{
+	margin-bottom:20px;
 }
 
-#feedback .comment{
-	height: 120px;
-	margin-top:50px;
-}
-
-#feedback .comment i{
-	font-size:150%;
-}
-
-#feedback #img-customer{
-}
-
-#feedback #myCarousel{
-	padding-bottom:15%;
-	margin-left:10%;
-	margin-right:10%;
-	width:80%;
-}
-#feedback #carousel-control{
-	background:rgba(0,0,0,0);
-}
 
 #aboutus{
 	padding-top:8%;
+}
+
+#teacher{
+	padding-bottom:8%;
+}
+
+#aboutus a{
+	color:white;
+}
+
+#aboutus a:hover{
+	color:rgba(0,0,0,.9);
 }
 
 
@@ -250,6 +257,7 @@ a:link{
 .feed-back form{
 	margin-left:7%;
 	margin-top:2%;
+	margin-bottom:2%;
 }
 .feed-back form button{
 	border-radius:0;
@@ -260,4 +268,20 @@ a:link{
 .feed-back input{
 	border-radius:0px;
 	font-size:80%;
+}
+
+.hide-teacher{
+	opacity:0.3;
+}
+
+.active-teacher{
+	opacity:1;
+}
+
+.hide-teacher img{
+	width:80%;
+}
+
+.active-teacher img{
+	width:100%;
 }

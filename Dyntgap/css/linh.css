@@ -6,7 +6,7 @@ h1 {
 	color: #2c3e50
 }
 #title-xstk {
-	color: #02B3E4;
+	color: white;
 	font-size: 200%;
 	padding-top: 10%;
 }
@@ -19,14 +19,15 @@ h1 {
 	border-left-color: white;
 	color:white;
 	padding-left:2%;
+	margin-top:4%;
 	margin-left:2%;
 	margin-right:2%;
 }
 
 #describle-xstk {
-	border-left-color: #2AF4CD;
+	border-left-color: white;
 	padding-left:2%;
-	color:#02B3E4;
+	color:white;
 	margin-left:2%;
 	margin-right:2%;
 }
@@ -44,7 +45,7 @@ h1 {
     padding: 20px;
     margin-top: 20px;
 	margin-bottom:20px;
-    border: 1px solid #2AF4CD;
+    border: 1px solid white;
     border-left-width: 5px;
     border-radius: 3px;
 }
