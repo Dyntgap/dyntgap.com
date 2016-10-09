@@ -13,7 +13,7 @@ a:link{
 	text-decoration: none;
 }
 .nav> li> a, .nav >li > a:hover, .nav > li >a:focus{
-	//background: #002051;
+	background:#17234F;
 	color:white;
 }
 .nav >li > a:hover{
@@ -28,7 +28,7 @@ a:link{
 	color: black;
 }
 .navbar-header button{
-	background: white;
+	background: #17234F;
 }
 .navbar-header button>span{
 	background: #002051;
@@ -256,7 +256,7 @@ a:link{
 }
 .feed-back form{
 	margin-left:7%;
-	margin-top:2%;
+	margin-top:4%;
 	margin-bottom:2%;
 }
 .feed-back form button{

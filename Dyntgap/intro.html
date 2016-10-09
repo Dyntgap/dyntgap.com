@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Giới thiệu về quá trình học</title>
+	<script src="./bootstrap-3.3.7/jquery/jquery.min.js"></script>
+	<script src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="./horizontal-timeline/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="./horizontal-timeline/css/style.css"> <!-- Resource style -->
+
+	<link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="./chartist-js-develop/dist/chartist.min.css">
+	<script src="./horizontal-timeline/js/modernizr.js"></script> <!-- Modernizr -->
+	<link rel="stylesheet" href="css/media-queries.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="user-profile.css">
+    <link rel="stylesheet" href="css/linh.css">
+
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script src="dyntgap_duck.js?1475677766410"></script>
+	<script>
+var canvas, stage, exportRoot;
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+function handleComplete(evt) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.dyntgap_duck();
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	//Registers the "tick" event listener.
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+	//Code to support hidpi screens and responsive scaling.
+	(function(isResp, respDim, isScale, scaleType) {
+		var lastW, lastH, lastS=1;
+		window.addEventListener('resize', resizeCanvas);
+		resizeCanvas();
+		function resizeCanvas() {
+			var w = lib.properties.width, h = lib.properties.height;
+			var iw = window.innerWidth, ih=window.innerHeight;
+			var pRatio = window.devicePixelRatio, xRatio=iw/w, yRatio=ih/h;
+			var sRatio = 1;
+			if(isResp) {
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+					sRatio = lastS;
+				}
+				else if(!isScale) {
+					if(iw<w || ih<h)
+						sRatio = Math.min(xRatio, yRatio);
+				}
+				else if(scaleType==1) {
+					sRatio = Math.min(xRatio, yRatio);
+				}
+				else if(scaleType==2) {
+					sRatio = Math.max(xRatio, yRatio);
+				}
+			}
+			canvas.width = w*pRatio*sRatio;
+			canvas.height = h*pRatio*sRatio;
+			canvas.style.width = w*sRatio+'px';
+			canvas.style.height = h*sRatio+'px';
+			stage.scaleX = pRatio*sRatio;
+			stage.scaleY = pRatio*sRatio;
+			lastW = iw; lastH = ih; lastS = sRatio;
+		}
+	})(true,'both',false,1);
+}
+</script>
+
+    <script src="./chartist-js-develop/dist/chartist.min.js"></script>
+	<script src="./horizontal-timeline/js/main.js"></script> <!-- Resource jQuery -->
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20" onload="init();" style="margin:0px;">
+
+	<nav class="navbar navbar-fixed-top fix-navbar">
+	<div class="container-fluid">
+		<a class="navbar-brand btn" href="./mainpage.html" style="color:white"><strong>DYNTGAP</strong></a>
+		<div style="float:right">
+			<a class="btn"style="padding-top:10px">
+				<img src="./img/person.jpg" style="width:30px;"> Jax Persion
+			</a>
+			<a class="btn" style="font-size:90%">Đăng xuất</a>
+		</div>
+	</div>
+	</nav>
+
+
+
+	<div class="container">
+	<div class="row">
+    <nav class="col-sm-3" id="myScrollspy">
+		<ul class="nav nav-pills nav-stacked">
+			<div id="avatar"class="text-center">
+				<img src="./img/person.jpg" style="max-width:150px"><br>
+				<a href="#"><strong>Jax Persion</strong></a>
+			</div>
+			<li class="active"><a href="#userinfo"><span class="glyphicon glyphicon-user"></span> Thông tin cá nhân</a></li>
+			<li><a href="#userprocess"><span class="glyphicon glyphicon-book"></span> Quá trình học tập</a></li>
+			<li><a href="#userrecently"><span class="glyphicon glyphicon-time"></span> Hoạt động gần đây</a></li>
+		</ul>
+    </nav>
+    <div class="col-sm-8" id="content">
+      <div id="userinfo">
+        <h3>Thông tin cá nhân</h3>
+		<table class="col-sm-12">
+		<tr>
+		<td class="col-sm-6"><strong>Họ và tên:</strong></td>
+		<td class="col-sm-6">Jax Persion</td>
+		</tr>
+		<tr>
+		<td class="col-sm-6"><strong>Tên tài khoản:</strong></td>
+		<td class="col-sm-6">jaxps12345</td>
+		</tr>
+		<tr>
+		<td class="col-sm-6"><strong>Email:</strong></td>
+		<td class="col-sm-6">jaxpersion@email.com</td>
+		</tr>
+		<tr>
+		<td class="col-sm-6"><strong>Ngày tháng năm sinh:</strong></td>
+		<td class="col-sm-6">29/2/1996</td>
+		</tr>
+		<tr>
+		<td class="col-sm-6"><strong>Nghề nghiệp:</strong></td>
+		<td class="col-sm-6">Sinh viên</td>
+		</tr>
+		</table>
+      </div>
+	  <div style="clear:both"></div>
+      <div id="userprocess">
+        <h3>Quá trình học tập</h3>
+		<div class="col-sm-6">
+			<div class="text-center" style="width:230px">
+				<div class="ct-chart ct-perfect-fourth" style="margin-bottom:50px">
+				</div>
+			</div>
+			<div style="width:200px">
+				<p style="font-size:150%">Tín hiệu hệ thống</p>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="text-center" style="width:230px">
+				<div class="ct-chart1 ct-perfect-fourth" style="margin-bottom:50px">
+				</div>
+			</div>
+			<div style="width:200px">
+				<p style="font-size:150%">Xác suất thống kê</p>
+			</div>
+		</div>
+		<div style="clear:both"></div>
+      </div>
+      <div id="userrecently">
+        <h3>Hoạt động gần đây</h3>
+        <section class="cd-horizontal-timeline">
+	<div class="timeline">
+		<div class="events-wrapper">
+			<div class="events">
+				<ol>
+					<li><a href="#0" data-date="15/09/2016" class="selected">15/09</a></li>
+					<li><a href="#0" data-date="19/09/2016">19/09</a></li>
+					<li><a href="#0" data-date="21/09/2016">21/09</a></li>
+					<li><a href="#0" data-date="01/10/2016">01/10</a></li>
+					<li><a href="#0" data-date="09/10/2016">09/10</a></li>
+				</ol>
+
+				<span class="filling-line" aria-hidden="true"></span>
+			</div> <!-- .events -->
+		</div> <!-- .events-wrapper -->
+			
+		<ul class="cd-timeline-navigation">
+			<li><a href="#0" class="prev inactive">Prev</a></li>
+			<li><a href="#0" class="next">Next</a></li>
+		</ul> <!-- .cd-timeline-navigation -->
+	</div> <!-- .timeline -->
+
+	<div class="events-content">
+		<ol>
+			<li class="selected" data-date="15/09/2016">
+			<h5>Đã học chương I Xác suất thống kê</h5>
+			</li>
+
+			<li data-date="19/09/2016">
+			<h5>Đã học chương II Xác suất thống kê</h5>
+			</li>
+
+			<li data-date="21/09/2016">
+			<h5>Đã học chương III Xác suất thống kê</h5>
+			<h5>Đã học chương I Tín hiệu hệ thống</h5>
+			</li>
+
+			<li data-date="01/10/2016">
+			<h5>Đã học chương II Tín hiệu hệ thống</h5>
+			</li>
+
+			<li data-date="09/10/2016">
+			<h5>Đã học chương IV Xác suất thống kê</h5>
+			<h5>Đã học chương II Tín hiệu hệ thống</h5>
+			</li>
+		</ol>
+	</div> <!-- .events-content -->
+</section>
+      </div>
+    </div>
+  </div>
+</div>
+	
+<div id="footer" class="container-fluid">
+	<div id="dyntgapduck" class="col-sm-3">
+		<!--<div id="name-duck" class="col-sm-12 wow fadeInLeft" data-wow-duration="2s" data-wow-offset="100">
+            <img src="../logo-footer.png" id="name-footer" style="width: 70%">
+            <img src="../Dyntgap_Duck.png" style="width: 20%">
+        </div>
+        <div id="line-below-duck" class="col-sm-12">
+            <img src="../Line.png" style="width: 90%">
+        </div>
+        <div id="info" class="col-sm-12">
+            <p>
+                Website tự học Tín hiệu hệ thống và Xác suất thống kê
+            </p>
+            <p>
+                Facebook: fb.com/dyntgap | Email: dyntgap@gmail.com
+            </p>
+        </div>-->
+		<div id="duck-animation">		
+			<canvas id="canvas" style="display: block; background-color:rgba(0, 32, 81, 1.00);margin-top:-3%;margin-left:-8%;"></canvas>
+		</div>
+		<a id="name-web" href="#">Dyntgap</a>
+		<ul class="list-group" style="margin-left:10%">
+			<li class="list-group-item col-sm-12"><a href="#thht-body">Tín hiệu hệ thống</a></li>
+			<li class="list-group-item col-sm-12"><a href="#xstk-body">Xác suất thống kê</a></li>
+		</ul>
+	</div>
+
+
+	<div class="suggestion col-sm-4">
+		<p>Tham khảo</p>
+		<ul class="list-group" style="margin-left:10%">
+			<li class="list-group-item col-sm-12"><a href="https://www.facebook.com/holi0411">Các công thức THHT và XSTK</a></li>
+			<li class="list-group-item col-sm-12"><a href="https://www.designzillas.com/">Một số dạng bài tập THHT</a></li>
+			<li class="list-group-item col-sm-12"><a href="http://www.dnawebagency.com/">Một số dạng bài tập XSTK</a></li>
+		</ul>
+	</div>
+	<div class="feed-back col-sm-4">
+		<div id="follow">		
+			<p> Đăng ký theo dõi</p>		
+			<form class="form-inline">		
+				<input type="text" class="form-control col-sm-3" placeholder="Email">		
+					<button class="form-control btn col-sm-1 active">Đăng ký</button>		
+				</form>		
+			</div>		
+			<div style="clear:both"></div>		
+ 			<p style="font-size:100%">hoặc</p>		
+ 			<div id="contact">		
+ 				<a class="btn btn-social-icon btn-facebook">		
+ 					<i class="fa fa-facebook" style="font-size:160%; margin-top:2px;"></i>		
+ 				</a>		
+ 				<a class="btn btn-social-icon btn-pinterest">		
+ 					<span class="fa fa-pinterest" style="font-size:160%;margin-left:-2px;padding-top:5%"></span>		
+ 				</a>		
+ 				<a class="btn btn-social-icon btn-google">		
+ 					<span class="fa fa-google" style="font-size:160%;margin-left:-3px;margin-top:5%"></span>		
+ 				</a>		
+ 			</div>
+		</div>
+	</div>
+	<div id="copyright" class="text-center">
+		<p>Copyright © 2016 Dyntgap</p>
+	</div>
+
+</body>
+<script>
+	var chart = new Chartist.Pie('.ct-chart', {
+  series: [{
+    name: 'done',
+    className: 'ct-done',
+    value: 30
+  }, {
+    name: 'outstanding',
+    className: 'ct-outstanding',
+    value: 70
+  }]
+}, {
+  donut: true,
+  width: 200,
+  height: 200,
+  labelInterpolationFnc: function(value) {
+    var total = chart.data.series.reduce(function(prev, series) {
+      return prev + series.value;
+    }, 0);
+    
+    return Math.round(value / total * 100) + '%';
+  }
+});
+chart.on('draw', function(data) {
+  if(data.type === 'slice') {
+    // Get the total path length in order to use for dash array animation
+    var pathLength = data.element._node.getTotalLength();
+
+    // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+    data.element.attr({
+      'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+    });
+
+    // Create animation definition while also assigning an ID to the animation for later sync usage
+    var animationDefinition = {
+      'stroke-dashoffset': {
+        id: 'anim' + data.index,
+        dur: 1000,
+        from: -pathLength + 'px',
+        to:  '0px',
+        easing: Chartist.Svg.Easing.easeOutQuint,
+        // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+        fill: 'freeze'
+      }
+    };
+
+    // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
+    if(data.index !== 0) {
+      animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+    }
+
+    // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+    data.element.attr({
+      'stroke-dashoffset': -pathLength + 'px'
+    });
+
+    // We can't use guided mode as the animations need to rely on setting begin manually
+    // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+    data.element.animate(animationDefinition, false);
+  }
+});
+
+
+
+
+var chart1 = new Chartist.Pie('.ct-chart1', {
+  series: [{
+    name: 'done',
+    className: 'ct-done',
+    value: 45
+  }, {
+    name: 'outstanding',
+    className: 'ct-outstanding',
+    value: 55
+  }]
+}, {
+  donut: true,
+  width: 200,
+  height: 200,
+  labelInterpolationFnc: function(value) {
+    var total = chart.data.series.reduce(function(prev, series) {
+      return prev + series.value;
+    }, 0);
+    
+    return Math.round(value / total * 100) + '%';
+  }
+});
+chart1.on('draw', function(data) {
+  if(data.type === 'slice') {
+    // Get the total path length in order to use for dash array animation
+    var pathLength = data.element._node.getTotalLength();
+
+    // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+    data.element.attr({
+      'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+    });
+
+    // Create animation definition while also assigning an ID to the animation for later sync usage
+    var animationDefinition = {
+      'stroke-dashoffset': {
+        id: 'anim' + data.index,
+        dur: 1000,
+        from: -pathLength + 'px',
+        to:  '0px',
+        easing: Chartist.Svg.Easing.easeOutQuint,
+        // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+        fill: 'freeze'
+      }
+    };
+
+    // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
+    if(data.index !== 0) {
+      animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+    }
+
+    // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+    data.element.attr({
+      'stroke-dashoffset': -pathLength + 'px'
+    });
+
+    // We can't use guided mode as the animations need to rely on setting begin manually
+    // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+    data.element.animate(animationDefinition, false);
+  }
+});
+</script>
+</html>

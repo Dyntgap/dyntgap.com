@@ -1,0 +1,101 @@
+body{
+	background:#F8F8F8;
+	position:relative;
+}
+
+.fix-navbar a{
+	color:white;
+}
+
+.row nav{
+	padding-top:8%;
+}
+.row ul.nav-pills {
+    top: 7%;
+}
+.row a:visited{
+	color:black;
+}
+
+.row #content{
+	padding-left:5%;
+}
+
+.row #myScrollspy{
+}
+.row #myScrollspy #avatar li a{
+	color:black;
+}
+
+.row #avatar{
+	margin-bottom:5%;
+}
+
+.row #avatar a{
+	font-size:130%;
+}
+.row #avatar img{
+	margin:5%;
+	margin-left:0%;
+	margin-right:0%;
+}
+
+.row .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+	background:white;
+	font-size:110%;
+	font-weight:bold;
+	color:black;
+}
+
+.row .nav >li > a:hover, .nav > li >a:focus{
+	background:#EEEEED;
+	color:black;
+}
+.row h3{
+	font-weight:bold;
+	margin-bottom:5%;
+}
+.row .nav li a{
+	color:#888888;
+	
+}
+
+.row .nav li{
+	border-bottom:2px solid #EEEEED;
+	border-radius:0px;
+}
+
+.row #userinfo{
+	padding-top:8%;
+}
+
+.row #userinfo table tr{
+	height:40px;
+}
+.row #userprocess{
+	padding-top:8%;
+}
+.row .ct-outstanding .ct-slice-donut {
+  stroke: #0033CC;
+  stroke-width: 30px !important;
+}
+
+.row .ct-done .ct-slice-donut {
+  stroke: #CC0000;
+  stroke-width: 40px !important;
+}
+
+.row .ct-label {
+  text-anchor: middle;
+  alignment-baseline: middle;
+  font-size: 10px;
+  fill: white;
+}
+
+.row h3{
+	margin-left:-2%;
+}
+
+.row #userrecently{
+	padding-top:8%;
+}
