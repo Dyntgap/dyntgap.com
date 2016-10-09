@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dyntgap</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.min.css">
+  <script src="./bootstrap-3.3.7/jquery/jquery.min.js"></script>
+  <script src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="animate.css">
+  <script src="./WOW-master/dist/wow.min.js"></script>
+  <script> new WOW().init();</script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+
+    <!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+    <!-- animate -->
+	<!-- ANIMATION DYNTGAP DUCK -->
+    <meta name="authoring-tool" content="Adobe_Animate_CC">
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script src="dyntgap_duck.js?1475677766410"></script>
+	<script>
+		var canvas, stage, exportRoot;
+		function init() {
+			canvas = document.getElementById("canvas");
+			images = images||{};
+			var loader = new createjs.LoadQueue(false);
+			loader.addEventListener("fileload", handleFileLoad);
+			loader.addEventListener("complete", handleComplete);
+			loader.loadManifest(lib.properties.manifest);
+		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+		function handleFileLoad(evt) {
+			if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+		}
+		function handleComplete(evt) {
+			//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+			var queue = evt.target;
+			var ssMetadata = lib.ssMetadata;
+			for(i=0; i<ssMetadata.length; i++) {
+				ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+			}
+			exportRoot = new lib.dyntgap_duck();
+			stage = new createjs.Stage(canvas);
+			stage.addChild(exportRoot);
+			//Registers the "tick" event listener.
+			createjs.Ticker.setFPS(lib.properties.fps);
+			createjs.Ticker.addEventListener("tick", stage);
+			//Code to support hidpi screens and responsive scaling.
+			(function(isResp, respDim, isScale, scaleType) {
+				var lastW, lastH, lastS=1;
+				window.addEventListener('resize', resizeCanvas);
+				resizeCanvas();
+				function resizeCanvas() {
+					var w = lib.properties.width, h = lib.properties.height;
+					var iw = window.innerWidth, ih=window.innerHeight;
+					var pRatio = window.devicePixelRatio, xRatio=iw/w, yRatio=ih/h;
+					var sRatio = 1;
+					if(isResp) {
+						if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+							sRatio = lastS;
+						}
+						else if(!isScale) {
+							if(iw<w || ih<h)
+								sRatio = Math.min(xRatio, yRatio);
+						}
+						else if(scaleType==1) {
+							sRatio = Math.min(xRatio, yRatio);
+						}
+						else if(scaleType==2) {
+							sRatio = Math.max(xRatio, yRatio);
+						}
+					}
+					canvas.width = w*pRatio*sRatio;
+					canvas.height = h*pRatio*sRatio;
+					canvas.style.width = w*sRatio+'px';
+					canvas.style.height = h*sRatio+'px';
+					stage.scaleX = pRatio*sRatio;
+					stage.scaleY = pRatio*sRatio;
+					lastW = iw; lastH = ih; lastS = sRatio;
+				}
+			})(true,'both',false,1);
+		}
+	</script>
+    <!-- media-queries -->
+    <link rel="stylesheet" href="css/media-queries.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/linh.css">
+	<link rel="stylesheet" href="css/linh-login.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<<<<<<< HEAD
+<body  data-spy="scroll" data-target=".navbar" data-offset="50" onload="init();" style="margin:0px;">
+=======
+<body>  <!--data-spy="scroll" data-target=".navbar" data-offset="50" onload="init();" style="margin:0px;"-->
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+
+	<nav class="navbar navbar-fixed-top fix-navbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
+			 <a class="navbar-brand btn" href="#banner" style="color:white"><strong>DYNTGAP</strong></a>
+			</div>
+			<div>
+			  <div class="collapse navbar-collapse text-left" id="myNavbar">
+				<ul class="nav navbar-nav" style="color:white">
+				  <li><a class="btn" href="#subjects">Khóa học</a></li>
+				  <li><a class="btn" href="#feedback">Phản hồi</a></li>
+				  <li><a class="btn" href="#aboutus">Chúng tôi</a></li>
+				  <li><a class="btn" href="#footer">Nhiều hơn nữa..</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right" style="color:white">
+				  <li><a class="btn" href="#" style="font-size:80%">Đăng ký</a></li>
+				  <li><a class="btn login-window" href="#login-box" style="font-size:80%">Đăng nhập</a></li>
+				</ul>
+			  </div>
+			</div>
+		</div>
+	</nav>
+<div class=" row ">
+	<div class="login col-xs-12 col-sm-6 col-lg-4" id="login-box"> <!--linhrf-->
+		<div id="title-login">
+			<h2>
+				Đăng Nhập
+				<button class="btn btn-danger close" href="#">x</button>
+			</h2>
+		</div>
+
+		<form class="login-content" action="#" method="post">
+			<label class="username">
+				<input id="username" type="text" autocomplete="on" name="username" placeholder="Tên tài khoản" value="" />
+			</label>
+			<label class="password">
+				<input id="password" type="password" name="password" placeholder="Mật khẩu" value="" />
+			</label>
+			<label>
+				<button class="button submit-button" type="button">Đăng nhập</button>
+			</label>
+			<label>
+				<a class="forgot" href="#"><p class="text-center">Quên mật khẩu?</p></a>
+			</label>
+		</form>
+	</div>
+</div>
+	<div id="banner">
+		<div id="center-header">
+			<img src="../testbanner.png" style="width:100%;height:80%">
+			<a href="#subjects">
+				<button class="btn" style="font-size:150%; margin-top:-40%; margin-left:4%;">Bắt đầu ngay</button>
+			</a>
+		</div>
+	</div>
+
+
+		<!--<div id="subjects">
+			<div id="thht-body" class="col-sm-6">
+				<div id="thht">
+					<div class="start-position">
+					<img id="thht-img" src="../thht.png" style="width: 50%">
+					</div>
+				</div>
+			</div>
+			<div id="xstk-body" class="col-sm-6">
+				<div id="xstk">
+					<div class="start-position">
+					<img id="xstk-img" src="../xstk.png" style="width: 50%">
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<div id="subjects" class="text-center">
+		<h1 style="color:#000000"><strong>Danh sách các khóa học</strong></h1>
+			<div id="thht-body" class="col-sm-6">
+				<div id="thht" class="w3-card-4 col-sm-offset-1 col-sm-10">
+					<!-- icon thht -->
+					<div class="wow bounceInDown col-sm-3" style="max-width:200px">
+						<a href="#">
+							<img src="../thht.png" alt="thht" style="width:100%">
+						</a>
+					</div>
+					<!-- Tiêu đề vs nút đăng ký -->
+					<div class=" wow pulse col-sm-8" style="max-width:320px">
+						<h1  id="title-thht"> Tín hiệu hệ thống </h1>
+					</div>
+					<div style="clear:both"></div>
+					<div class="wow bounceInLeft bs-callout" id="describle-thht">
+						<p>	<strong>Tín hiệu và hệ thống</strong> đề cập đến các phép xử lý các dãy số
+							để có được các thông tin cần thiết như phân tích, tổng hợp, mã hóa, biến đổi tín hiệu
+							sang dạng mới phù hợp với hệ thống.
+						</p>
+					</div>
+					<div class="text-center" style="padding-bottom:7%;padding-top:5%;">
+						<button type="button" class="btn">Bắt đầu học</button>
+					</div>
+				</div>
+			</div>
+			<div id="xstk-body" class="col-sm-6">
+				<div id="xstk" class="w3-card-4 col-sm-offset-1 col-sm-10">
+					<!-- icon xstk -->
+					<div class="wow bounceInDown col-sm-3" style="max-width:200px;margin:0">
+						<a href="#">
+							<img src="../xstk.png" alt="study" style="width:100%">
+						</a>
+					</div>
+					<!-- Tiêu đề vs nút đăng ký -->
+					<div class=" wow pulse col-sm-8" style="max-width:320px">
+						<h1  id="title-xstk"> Xác suất thống kê </h1>
+					</div>
+					<div style="clear:both"></div>
+					<div class="wow bounceInRight bs-callout" id="describle-xstk">
+						<p><strong>Xác suất và thống kê</strong> đóng vai trò rất quan trọng trong hầu hết mọi lĩnh vực của thế
+						giới hiện đại, từ khoa học, công nghệ, đến kinh tế, chính trị, đến sức khỏe, môi trường,
+						v.v
+					</p>
+					</div>
+					<div class="text-center"  style="padding-bottom:7%;padding-top:5%;">
+						<button type="button" class="btn">Bắt đầu học</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="feedback">
+			<div id="feedback-info" class="col-sm-3">
+				<p style="color:black;padding-left:5%">
+				<span style="font-size:30px">Nhận xét</span><br>
+				<span style="padding-left:10%">từ một số học viên..</span>
+				</p>
+			</div>
+			<div class="col-sm-3 text-center">
+				<div class="w3-card-2 col-sm-11" style="background:white;color:black;">
+					<img src="./img/student2.jpg" style="width:50%;margin-bottom:4%;margin-top:4%">
+					<h3 style="margin-bottom:10%">Robert Tedwoud</h3>
+					<div class="comment">
+					<i>"Đây thật là một trang web bổ ích. Nhờ học trên web mà mình đã không còn sợ hai môn Tín hiệu hệ thống và Xác suất thống kê nữa."</i>
+					</div>
+					<div style="height:50px"></div>
+				</div>
+			</div>
+			<div class="col-sm-3 text-center">
+				<div class="w3-card-2 col-sm-11" style="background:white;color:black;">
+					<img src="./img/student3.jpg" style="width:50%;margin-bottom:4%;margin-top:4%">
+					<h3 style="margin-bottom:10%">David Lee</h3>
+					<div class="comment">
+					<i>"Đây thật là một trang web bổ ích. Nhờ học trên web mà mình đã không còn sợ hai môn Tín hiệu hệ thống và Xác suất thống kê nữa."</i>
+					</div>
+					<div style="height:50px"></div>
+				</div>
+			</div>
+			<div class="col-sm-3 text-center">
+				<div class="w3-card-2 col-sm-11" style="background:white;color:black;">
+					<img src="./img/student1.jpg" style="width:50%;margin-bottom:4%;margin-top:4%">
+					<h3 style="margin-bottom:10%">Anna Eleven</h3>
+					<div class="comment">
+					<i>"Đây thật là một trang web bổ ích. Nhờ học trên web mà mình đã không còn sợ hai môn Tín hiệu hệ thống và Xác suất thống kê nữa."</i>
+					</div>
+					<div style="height:50px"></div>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+
+	  <!--
+			Team mems
+			-->
+		<div id="aboutus" class="text-center">
+			<p style="font-size:30px;margin-bottom:5%"><strong>Đội ngũ giảng viên</strong></p>
+			<div class="teacher">
+				<div id="teacher0" onclick="select(0);" class="img-teacher col-sm-3 hide-teacher active-teacher">
+					<img class="w3-card-24" src="./img/teacher1.jpg">
+					<p style="margin-top:10%">
+						<strong>Giáo sư Eve Master</strong>
+					</p>
+					<ul class="social-links text-center">
+						<li><a href="" class="btn btn-github btn-link-social" ><i class="fa fa-github fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+					</ul>
+<<<<<<< HEAD
+				</div>
+				<div id="teacher1" onclick="select(1);" class="img-teacher col-sm-3 hide-teacher">
+					<img class="w3-card-24" src="./img/teacher2.jpg">
+					<p style="margin-top:10%">
+						<strong>Giáo sư Adam Leva</strong>
+					</p>
+					<ul class="social-links text-center">
+						<li><a href="" class="btn btn-github btn-link-social" ><i class="fa fa-github fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+					</ul>
+				</div>
+				<div id="teacher2" onclick="select(2);" class="img-teacher col-sm-3 hide-teacher">
+					<img class="w3-card-24" src="./img/teacher3.jpg">
+					<p style="margin-top:10%">
+						<strong>Giáo sư Ted Mosby</strong>
+					</p>
+					<ul class="social-links text-center">
+						<li><a href="" class="btn btn-github btn-link-social" ><i class="fa fa-github fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+					</ul>
+				</div>
+				<div id="teacher3" onclick="select(3);" class="img-teacher col-sm-3 hide-teacher">
+					<img class="w3-card-24" src="./img/teacher4.jpg">
+					<p style="margin-top:10%">
+						<strong>Giáo sư Barney Stinson</strong>
+					</p>
+					<ul class="social-links text-center">
+						<li><a href="" class="btn btn-github btn-link-social" ><i class="fa fa-github fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+					</ul>
+				</div>
+=======
+				</div>
+				<div id="teacher1" onclick="select(1);" class="img-teacher col-sm-3 hide-teacher">
+					<img class="w3-card-24" src="./img/teacher2.jpg">
+					<p style="margin-top:10%">
+						<strong>Giáo sư Adam Leva</strong>
+					</p>
+					<ul class="social-links text-center">
+						<li><a href="" class="btn btn-github btn-link-social" ><i class="fa fa-github fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+					</ul>
+				</div>
+				<div id="teacher2" onclick="select(2);" class="img-teacher col-sm-3 hide-teacher">
+					<img class="w3-card-24" src="./img/teacher3.jpg">
+					<p style="margin-top:10%">
+						<strong>Giáo sư Ted Mosby</strong>
+					</p>
+					<ul class="social-links text-center">
+						<li><a href="" class="btn btn-github btn-link-social" ><i class="fa fa-github fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+					</ul>
+				</div>
+				<div id="teacher3" onclick="select(3);" class="img-teacher col-sm-3 hide-teacher">
+					<img class="w3-card-24" src="./img/teacher4.jpg">
+					<p style="margin-top:10%">
+						<strong>Giáo sư Barney Stinson</strong>
+					</p>
+					<ul class="social-links text-center">
+						<li><a href="" class="btn btn-github btn-link-social" ><i class="fa fa-github fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-facebook btn-link-social"><i class="fa fa-facebook fa-lg"></i></a></li>
+						<li><a href="" class="btn btn-linkedin btn-link-social"><i class="fa fa-linkedin fa-lg"></i></a></li>
+					</ul>
+				</div>
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+				<div style="clear:both"></div>
+			</div>
+		</div>
+
+		<div style="height:100px"></div>
+		<!--
+		End Meet Our Team
+		==================================== -->
+
+
+		<div id="footer" class="container-fluid">
+		<div id="dyntgapduck" class="col-sm-3">
+<<<<<<< HEAD
+			<!--<div id="name-duck" class="col-sm-12 wow fadeInLeft" data-wow-duration="2s" data-wow-offset="100">
+=======
+			<div id="name-duck" class="col-sm-12 wow fadeInLeft" data-wow-duration="2s" data-wow-offset="100">
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+				<img src="../logo-footer.png" id="name-footer" style="width: 70%">
+				<img src="../Dyntgap_Duck.png" style="width: 20%">
+			</div>
+			<div id="line-below-duck" class="col-sm-12">
+				<img src="../Line.png" style="width: 90%">
+			</div>
+			<div id="info" class="col-sm-12">
+				<p>
+					Website tự học Tín hiệu hệ thống và Xác suất thống kê
+				</p>
+				<p>
+					Facebook: fb.com/dyntgap | Email: dyntgap@gmail.com
+				</p>
+<<<<<<< HEAD
+			</div>-->
+			<div id="duck-animation">		
+				<canvas id="canvas" style="display: block; background-color:rgba(0, 32, 81, 1.00);margin-top:-3%;margin-left:-8%;"></canvas>
+			</div>
+=======
+			</div>
+			<div id="duck-animation">
+				<canvas id="canvas" style="display: block; background-color:rgba(0, 32, 81, 1.00);margin-top:-3%;margin-left:-8%;"></canvas>
+			</div>
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+			<a id="name-web" href="#">Các khóa học</a>
+			<ul class="list-group" style="margin-left:10%">
+				<li class="list-group-item col-sm-12"><a href="#thht-body">Tín hiệu hệ thống</a></li>
+				<li class="list-group-item col-sm-12"><a href="#xstk-body">Xác suất thống kê</a></li>
+			</ul>
+		</div>
+
+
+		<div class="suggestion col-sm-4">
+			<p>Tham khảo</p>
+			<ul class="list-group" style="margin-left:10%">
+				<li class="list-group-item col-sm-12"><a href="https://www.facebook.com/holi0411">Các công thức THHT và XSTK</a></li>
+				<li class="list-group-item col-sm-12"><a href="https://www.designzillas.com/">Một số dạng bài tập THHT</a></li>
+				<li class="list-group-item col-sm-12"><a href="http://www.dnawebagency.com/">Một số dạng bài tập XSTK</a></li>
+			</ul>
+<<<<<<< HEAD
+		</div>
+		<div class="feed-back col-sm-4">	
+			<p> Đăng ký theo dõi</p>		
+			<div id="follow" class="col-sm-12">	
+				<form class="form-inline">		
+					<input type="text" class="form-control col-sm-6" placeholder="Email">		
+					<button class="form-control btn col-sm-2 active">Đăng ký</button>		
+				</form>		
+			</div>		
+			<div style="clear:both"></div>		
+			<p style="font-size:100%">hoặc</p>		
+			<div id="contact">		
+				<a class="btn btn-social-icon btn-facebook">		
+					<i class="fa fa-facebook" style="font-size:160%; margin-top:2px;"></i>		
+				</a>		
+				<a class="btn btn-social-icon btn-pinterest">		
+					<span class="fa fa-pinterest" style="font-size:160%;margin-left:-2px;padding-top:5%"></span>		
+				</a>		
+				<a class="btn btn-social-icon btn-google">		
+					<span class="fa fa-google" style="font-size:160%;margin-left:-3px;margin-top:5%"></span>		
+				</a>		
+			</div>
+		</div>
+=======
+		</div>
+		<div class="feed-back col-sm-4">
+			<div id="follow">
+				<p> Đăng ký theo dõi</p>
+				<form class="form-inline">
+					<input type="text" class="form-control col-sm-3" placeholder="Email">
+						<button class="form-control btn col-sm-1 active">Đăng ký</button>
+					</form>
+				</div>
+				<div style="clear:both"></div>
+				<p style="font-size:100%">hoặc</p>
+				<div id="contact">
+					<a class="btn btn-social-icon btn-facebook">
+						<i class="fa fa-facebook" style="font-size:160%; margin-top:2px;"></i>
+					</a>
+					<a class="btn btn-social-icon btn-pinterest">
+						<span class="fa fa-pinterest" style="font-size:160%;margin-left:-2px;padding-top:5%"></span>
+					</a>
+					<a class="btn btn-social-icon btn-google">
+						<span class="fa fa-google" style="font-size:160%;margin-left:-3px;margin-top:5%"></span>
+					</a>
+				</div>
+			</div>
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+		</div>
+		<div id="copyright" class="text-center">
+			<p>Copyright © 2016 Dyntgap</p>
+		</div>
+	</body>
+	<!--scripe của cái gì đây cmt vào =))  -lr -->
+	<script>
+		var teacher=3;
+<<<<<<< HEAD
+		var id;
+		loop(3);
+=======
+		loop(3);
+
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+		function loop(){
+			var x = "teacher"+teacher;
+			teacher = (teacher+1)%4;
+			var next = "teacher"+teacher;
+			var img =  document.getElementById(x);
+			img.className="img-teacher col-sm-3 hide-teacher";
+			img =  document.getElementById(next);
+			img.className+=" active-teacher";
+			setTimeout(loop,3000);
+		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+		function select(i){
+			var x = "teacher"+teacher;
+			var img =  document.getElementById(x);
+			img.className="img-teacher col-sm-3 hide-teacher";
+			teacher=i;
+			var next = "teacher"+teacher;
+			img =  document.getElementById(next);
+			img.className+=" active-teacher";
+<<<<<<< HEAD
+			clearTimeout(id);
+			setTimeout(loop,6000);
+=======
+			setTimeout(function(){},3000);
+>>>>>>> 823d959a4881bfe8c72a35d5756253cc79d40758
+		}
+	</script>
+
+	<!--linhrf-->
+	<script>
+		$(document).ready(function() {
+			$('a.login-window').click(function() {
+				//lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+				var loginBox = $(this).attr('href');
+				//cho hiện hộp đăng nhập trong 300ms
+				$(loginBox).fadeIn(300);
+				// thêm phần tử id="over" vào sau body
+				$('body').append('<div id="over">');
+				$('#over').fadeIn(300);
+				return false;
+			});
+			// khi click đóng hộp thoại
+			$(document).on('click', "button.close, #over", function() {
+				$('#over, .login').fadeOut(300 , function() {
+					$('#over').remove();
+				});
+				return false;
+			});
+		});
+	</script>
+</html>
