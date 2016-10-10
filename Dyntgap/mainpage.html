@@ -96,6 +96,10 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="css/linh.css">
 	<link rel="stylesheet" href="css/linh-login.css">
+	<link rel="stylesheet" href="css/linh-login1.css">
+
+
+	<script src="js/bootstrap.min.js"> </script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 </head>
@@ -121,64 +125,101 @@
 				  <li><a class="btn" href="#footer">Nhiều hơn nữa..</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" style="color:white">
-				  <li><a class="btn" href="#" style="font-size:80%">Đăng ký</a></li>
-				  <li><a class="btn login-window" href="#login-box" style="font-size:80%">Đăng nhập</a></li>
+				  <li><a class="btn signup-window" data-toggle="modal" data-target="#signup-box" href="#signup-box" style="font-size:80%">Đăng ký</a></li>
+				  <li><a class="btn login-window" data-toggle="modal" data-target="#login-box"  href="#login-box" style="font-size:80%">Đăng nhập</a></li>
+					<!--<li><a href="#cd-login">Sign in</a></li>
+					<li><a href="#0">New account</a></li>-->
 				</ul>
 			  </div>
 			</div>
 		</div>
 	</nav>
-<div class=" row ">
-	<div class="login col-xs-12 col-sm-6 col-lg-4" id="login-box"> <!--linhrf-->
-		<div id="title-login">
-			<h2>
-				Đăng Nhập
-				<button class="btn btn-danger close" href="#">x</button>
-			</h2>
-		</div>
 
-		<form class="login-content" action="#" method="post">
-			<label class="username">
-				<input id="username" type="text" autocomplete="on" name="username" placeholder="Tên tài khoản" value="" />
-			</label>
-			<label class="password">
-				<input id="password" type="password" name="password" placeholder="Mật khẩu" value="" />
-			</label>
-			<label>
-				<button class="button submit-button" type="button">Đăng nhập</button>
-			</label>
-			<label>
-				<a class="forgot" href="#"><p class="text-center">Quên mật khẩu?</p></a>
-			</label>
-		</form>
+
+
+
+
+	<div class=" row main">
+		<div class="signup col-xs-12  col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4" id="signup-box" > <!--linhrf-->
+			<!--<div class="modal login col-xs-12 col-sm-6 col-lg-4" id="login-box" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> &lt;!&ndash;linhrf&ndash;&gt;-->
+
+			<div id="title-signup" >
+				<h2>
+					Đăng ký
+					<button class="btn btn-danger close" href="#">x</button>
+				</h2>
+			</div>
+
+			<form class=" signup-content" action="#" method="post">
+
+				<label class="username">
+					<input type="text" autocomplete="on" name="name" placeholder="Họ và Tên" value="" />
+				</label>
+				<label class="username">
+					<input type="text" autocomplete="on" name="username" placeholder="Tên tài khoản" value="" />
+				</label>
+				<label class="password">
+					<input type="password" name="password" placeholder="Mật khẩu" value="" />
+				</label>
+				<label class="password">
+					<input type="password" name="password" placeholder="Nhập lại mật khẩu" value="" />
+				</label>
+
+				<label>
+					<button class="button submit-button" type="button">Đăng ký</button>
+				</label>
+			</form>
+
+		</div>
 	</div>
-</div>
+
+	<div class=" row main">
+		<div class="login col-xs-12  col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4" id="login-box" > <!--linhrf-->
+			<!--<div class="modal login col-xs-12 col-sm-6 col-lg-4" id="login-box" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> &lt;!&ndash;linhrf&ndash;&gt;-->
+
+			<div id="title-login" >
+				<h2>
+					Đăng Nhập
+					<button class="btn btn-danger close" href="#">x</button>
+				</h2>
+			</div>
+
+
+			<form class=" login-content" action="#" method="post">
+				<a class="login-fb" href="javascript:void(0)"><span class="i-fb"></span>Đăng nhập bằng Facebook</a>
+				<hr>
+				<label class="username">
+					<input id="no" type="text" autocomplete="on" name="username" placeholder="Tên tài khoản" value="" />
+				</label>
+				<label class="password">
+					<input id="" type="password" name="password" placeholder="Mật khẩu" value="" />
+				</label>
+				<label>
+					<button class="button submit-button" type="button">Đăng nhập</button>
+				</label>
+				<label>
+					<a class="forgot" href="#"><p class="text-center">Quên mật khẩu?</p></a>
+				</label>
+			</form>
+
+		</div>
+	</div>
+
+
+		<!-- <a href="#0" class="cd-close-form">Close</a> -->
+	</div> <!-- cd-signup -->
 	<div id="banner">
 		<div id="center-header">
-			<img src="../testbanner.png" style="width:100%;height:80%">
+			<img src="../testbanner3.png" style="width:100%;height:80%">
 			<a href="#subjects">
-				<button class="btn" style="font-size:150%; margin-top:-40%; margin-left:4%;">Bắt đầu ngay</button>
+				<button class="btn" style="height:50pb;font-size:20px; margin-top:-30%; margin-left:43%;">Bắt đầu ngay</button>
 			</a>
 		</div>
 	</div>
+ 
 
 
-		<!--<div id="subjects">
-			<div id="thht-body" class="col-sm-6">
-				<div id="thht">
-					<div class="start-position">
-					<img id="thht-img" src="../thht.png" style="width: 50%">
-					</div>
-				</div>
-			</div>
-			<div id="xstk-body" class="col-sm-6">
-				<div id="xstk">
-					<div class="start-position">
-					<img id="xstk-img" src="../xstk.png" style="width: 50%">
-					</div>
-				</div>
-			</div>
-		</div>-->
+
 		<div id="subjects" class="text-center">
 		<h1 style="color:#000000"><strong>Danh sách các khóa học</strong></h1>
 			<div id="thht-body" class="col-sm-6">
@@ -400,7 +441,6 @@
 			img.className+=" active-teacher";
 			id = setTimeout(loop,3000);
 		}
-
 		function select(i){
 			var x = "teacher"+teacher;
 			var img =  document.getElementById(x);
@@ -436,4 +476,27 @@
 			});
 		});
 	</script>
+<!--linhrf-->
+<script>
+	$(document).ready(function() {
+		$('a.signup-window').click(function() {
+			//lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+			var signupBox = $(this).attr('href');
+			//cho hiện hộp đăng nhập trong 300ms
+			$(signupBox).fadeIn(300);
+			// thêm phần tử id="over" vào sau body
+			$('body').append('<div id="over">');
+			$('#over').fadeIn(300);
+			return false;
+		});
+		// khi click đóng hộp thoại
+		$(document).on('click', "button.close, #over", function() {
+			$('#over, .signup').fadeOut(300 , function() {
+				$('#over').remove();
+			});
+			return false;
+		});
+	});
+</script>
+
 </html>

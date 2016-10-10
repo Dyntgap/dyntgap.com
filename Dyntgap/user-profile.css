@@ -76,12 +76,12 @@ body{
 	padding-top:8%;
 }
 .row .ct-outstanding .ct-slice-donut {
-  stroke: #0033CC;
+  stroke: #999999;
   stroke-width: 30px !important;
 }
 
 .row .ct-done .ct-slice-donut {
-  stroke: #CC0000;
+  stroke: #0099CC;
   stroke-width: 40px !important;
 }
 
