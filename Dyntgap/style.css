@@ -13,6 +13,7 @@ a:link{
 	text-decoration: none;
 }
 .nav> li> a, .nav >li > a:hover, .nav > li >a:focus{
+	background:none;
 	color:white;
 }
 .nav >li > a:hover{
