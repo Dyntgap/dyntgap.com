@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Courses</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="./bootstrap-3.3.7/css/bootstrap.min.css">
+
+        <!-- Script for math jax, using LaTeX to include mathematics-->
+
+        <!--<script type='text/x-mathjax-config'>-->
+            <!--MathJax.Hub.Config({-->
+              <!--TeX: { equationNumbers: { autoNumber: &quot;AMS&quot; } }-->
+            <!--});-->
+        <!--</script>-->
+        <!--<script type='text/x-mathjax-config'>-->
+            <!--MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\(&#39;,&#39;\)&#39;]]}});-->
+        <!--</script>-->
+        <!--<script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG' type='text/javascript'></script>-->
+        <script type="text/javascript" async
+                src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_CHTML"></script>
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+        <!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
+        <!--<link rel="stylesheet" href="style.css">-->
+        <!--<link rel="stylesheet" href="css/linh.css">-->
+
+        <link href="css/courses-style.css" rel="stylesheet" type="text/css">
+        <link href="css/courses-reponsive.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=1197699380249143";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <nar class="header">
+            <div class="left-nav-container">
+                <div class="navbar-left">
+                    <a href="#" class="navbar-icon">Show/Hide Nav</a>
+                </div>
+            </div>
+            <div class="center-nav-container">
+                    <h1 id="header-title">Welcome to our courses</h1>
+            </div>
+            <div class="right-nav-container">
+                <div class="narbar-right">
+                    <a href="#" class="navbar-search">Search</a>
+                </div>
+            </div>
+        </nar>
+
+        <div class="page-content">
+            <ul class="col-md-4 col-xs-8 col-sm-4 lessons-tab-view">
+                <li class="tab-lesson-item" style="padding-top: 0px">Bài 1: Các đại lượng ngẫu nhiên rời rạc</li>
+                <li class="tab-lesson-item tab-lesson-item-active">Bài 2: Phân bổ Poát-Xông</li>
+                <li class="tab-lesson-item">Bài 3: Thống kê</li>
+                <li class="tab-lesson-item">Bài 4: Luật số lớn</li>
+                <li class="tab-lesson-item">Bài 5: Phân bổ nhị thức</li>
+                <li class="tab-lesson-item">Bài 6: Phép thử Bernoulli</li>
+                <li class="tab-lesson-item">Bài 7: Công thức xác suất đầy đủ</li>
+                <li class="tab-lesson-item">Bài 8: Các đại lượng ngẫu nhiên</li>
+                <li class="tab-lesson-item">Bài 9: Công thức cộng xác suất</li>
+                <li class="tab-lesson-item">Bài 10: Biến cố</li>
+                <li class="tab-lesson-item">Bài 11: Công thức nhân xác suất</li>
+            </ul>
+
+            <div class="col-md-8 col-xs-12 col-sm-8 lessons-content-view">
+                <div class="tab-content tab-content-active">
+                    <h2 class="title-tab-content">Các đại lượng ngẫu nhiên rời rạc</h2>
+                    <div class="divider-left"></div>
+                    <div class="youtube-player">
+                        <figure>
+                            <iframe src="https://www.youtube.com/embed/qGRU3sRbaYw" allowfullscreen></iframe>
+                        </figure>
+                    </div>
+                    <div class="instructor-note">
+                        <h1 class="instructor-title">Welcome to this lesson</h1>
+                        <div class="mark-down-content">
+                            <p>
+                                - Công thức cộng xác suất: `P(AuuB) = P(A) + P(B) - P(AB)`<br>
+                                - Công thức xác suất đầy đủ: Giả sử `B_(1), B_(2),.., B_(n)` là hệ đầy đủ các biến cố<br>
+                                Xét biến cố A:
+                                <p style="text-align: center">`P(A) = sum_(i=1)^n P(B_(i))*(P(A|B_(i)))`</p>
+                                - Phép thử Bernoulli: Xác suất để trong n phép thử bernoulli biến cố A xuất hiện n lần<br>
+                                <p style="text-align:center">
+                                Kí hiệu:  `P_(n)(m,p)=C_(n)^m * P^m * (1-P)^(n-m) `</p>
+                                - Đại lượng ngẫu nhiên rời rạc:
+                                <p style="text-align: center">Kì vọng:  `EX = sum_(x_(i)p_(i)) = mu`</p>
+                                <p style="text-align: center">Phương sai:  `DX = E(X-mu)^2`</p>
+                                <p style="text-align: center">Độ lệch chuẩn:  `sigma_(x)=sqrt(DX)`</p>
+                                - Đại lượng ngẫu nhiên rời rạc X ~ Poát Xông (`lambda=k`)
+                                <p style="text-align: center">`P{X}=e^(-lambda)(lambda^k)/(k!)`</p>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="fb-comments" data-href="https://www.facebook.com/dyntgap/posts/317811121919721?comment_id=319658528401647" data-width="auto" data-numposts="5"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!--<div id="footer" class="container-fluid">-->
+            <!--<div id="dyntgapduck" class="col-sm-3">-->
+                <!--<div id="name-duck" class="col-sm-12 wow fadeInLeft" data-wow-duration="2s" data-wow-offset="100">-->
+                    <!--<img src="../logo-footer.png" id="name-footer" style="width: 70%">-->
+                    <!--<img src="../Dyntgap_Duck.png" style="width: 20%">-->
+                <!--</div>-->
+                <!--<div id="line-below-duck" class="col-sm-12">-->
+                    <!--<img src="../Line.png" style="width: 90%">-->
+                <!--</div>-->
+                <!--<div id="info" class="col-sm-12">-->
+                    <!--<p>-->
+                        <!--Website tự học Tín hiệu hệ thống và Xác suất thống kê-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--Facebook: fb.com/dyntgap | Email: dyntgap@gmail.com-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div id="duck-animation">-->
+                    <!--<canvas id="canvas" style="display: block; background-color:rgba(0, 32, 81, 1.00);margin-top:-3%;margin-left:-8%;"></canvas>-->
+                <!--</div>-->
+                <!--<a id="name-web" href="#">Các khóa học</a>-->
+                <!--<ul class="list-group" style="margin-left:10%">-->
+                    <!--<li class="list-group-item col-sm-12"><a href="#thht-body">Tín hiệu hệ thống</a></li>-->
+                    <!--<li class="list-group-item col-sm-12"><a href="#xstk-body">Xác suất thống kê</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="suggestion col-sm-4">-->
+                <!--<p>Tham khảo</p>-->
+                <!--<ul class="list-group" style="margin-left:10%">-->
+                    <!--<li class="list-group-item col-sm-12"><a href="https://www.facebook.com/holi0411">Các công thức THHT và XSTK</a></li>-->
+                    <!--<li class="list-group-item col-sm-12"><a href="https://www.designzillas.com/">Một số dạng bài tập THHT</a></li>-->
+                    <!--<li class="list-group-item col-sm-12"><a href="http://www.dnawebagency.com/">Một số dạng bài tập XSTK</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="feed-back col-sm-4">-->
+                <!--<div id="follow">-->
+                    <!--<p> Đăng ký theo dõi</p>-->
+                    <!--<form class="form-inline">-->
+                        <!--<input type="text" class="form-control col-sm-3" placeholder="Email">-->
+                        <!--<button class="form-control btn col-sm-1 active">Đăng ký</button>-->
+                    <!--</form>-->
+                <!--</div>-->
+                <!--<div style="clear:both"></div>-->
+                <!--<p style="font-size:100%">hoặc</p>-->
+                <!--<div id="contact">-->
+                    <!--<a class="btn btn-social-icon btn-facebook">-->
+                        <!--<i class="fa fa-facebook" style="font-size:160%; margin-top:2px;"></i>-->
+                    <!--</a>-->
+                    <!--<a class="btn btn-social-icon btn-pinterest">-->
+                        <!--<span class="fa fa-pinterest" style="font-size:160%;margin-left:-2px;padding-top:5%"></span>-->
+                    <!--</a>-->
+                    <!--<a class="btn btn-social-icon btn-google">-->
+                        <!--<span class="fa fa-google" style="font-size:160%;margin-left:-3px;margin-top:5%"></span>-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div id="copyright" class="text-center">-->
+            <!--<p>Copyright © 2016 Dyntgap</p>-->
+        <!--</div>-->
+
+        <script src="./bootstrap-3.3.7/jquery/jquery.min.js"></script>
+        <script src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+                $("li.tab-lesson-item").click(function(){
+                    $("li.tab-lesson-item-active").removeClass("tab-lesson-item-active");
+                    $(this).addClass("tab-lesson-item-active");
+                });
+
+                $("li.tab-lesson-item").hover(function(){
+                    $(this).addClass("tab-lesson-item-temp-active");
+                });
+
+                $("li.tab-lesson-item").mouseout(function(){
+                    $(this).removeClass("tab-lesson-item-temp-active");
+                });
+
+                $(".navbar-left").click(function(){
+                    $(".lessons-tab-view").style.display = "none";
+                    $(".lessons-content-view").removeClass("col-md-8");
+                    $(".lessons-content-view").removeClass("col-sm-8");
+                    $(".lessons-content-view").addClass("col-md-12");
+                });
+            });
+        </script>
+
+    </body>
+</html>
