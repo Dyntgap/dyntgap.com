@@ -1,0 +1,38 @@
+
+@media screen and (max-width: 768px){
+    .lessons-tab-view {
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .tab-lesson-item {
+        border-left-style: solid;
+        border-left-color: rgb(229, 229, 229);
+        border-left-width: 1px;
+        padding-left: 20px;
+
+        border-right-style: none;
+    }
+
+    .tab-lesson-item-active {
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: rgb(243, 99, 113);
+        color: rgb(243, 99, 113);
+
+        border-right-style: none;
+    }
+
+    .tab-lesson-item-temp-active {
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: rgb(243, 99, 113);
+        color: rgb(243, 99, 113);
+
+        border-right-style: none;
+    }
+
+    .page-content{
+        padding-top: 40px;
+    }
+}

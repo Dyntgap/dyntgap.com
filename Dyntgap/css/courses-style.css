@@ -1,0 +1,193 @@
+.header {
+    background: white;
+    border-bottom: 1px solid #dbe2e8;
+    font-size: 18px;
+    box-shadow: inset 0 0 0 0 #dbe2e8, rgba(47, 61, 73, .05);
+    color: #2e3d49;
+    z-index: 5;
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 67px;
+    max-height: 68px;
+    overflow: hidden;
+}
+
+.left-nav-container {
+    -webkit-flex: 1; /* Safari 6.1+ */
+    -ms-flex: 1 1 33%; /* IE 10 */
+    flex: 1 1 33%;
+    min-width: 45px;
+}
+
+.center-nav-container {
+    text-align: center;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 33%;
+    flex: 1 1 33%;
+    overflow: hidden;
+    min-width: 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.center-nav-container h1 {
+    height: 100%;
+    font-size: 25px !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 20px;
+}
+
+.navbar-left {
+    float: left !important;
+}
+
+.navbar-icon {
+    display: inline-block;
+    cursor: pointer;
+    background: url(../img/courses/icon-hamburger.svg) transparent no-repeat;
+    background-position: center;
+    position: relative;
+    top: 12px;
+    height: 38px;
+    width: 38px;
+    margin-right: 15px;
+    overflow: hidden;
+    text-indent: -999em;
+}
+
+.right-nav-container {
+    text-align: right;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 33%;
+    flex: 1 1 33%;
+}
+
+.narbar-right {
+    float: right !important;
+}
+
+.navbar-search {
+    background: url(../img/courses/search.svg) transparent no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 12px;
+    height: 38px;
+    width: 38px;
+    margin-bottom: -12px;
+    margin-right: 20px;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999em;
+}
+
+.page-content {
+    padding-top: 80px;
+    padding-bottom: 150px;
+}
+
+.lessons-tab-view {
+    text-align: right;
+    list-style: none;
+    padding-right: 0;
+    padding-bottom: 50px;
+}
+
+.tab-lesson-item {
+    cursor: pointer;
+    border-right-style: solid;
+    border-right-color: rgb(229, 229, 229);
+    border-right-width: 1px;
+
+    padding-top: 18px;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 18px;
+    position: relative;
+    padding-right: 20px;
+}
+
+.tab-lesson-item-active {
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: rgb(243, 99, 113);
+    color: rgb(243, 99, 113);
+}
+
+.tab-lesson-item-temp-active {
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: rgb(243, 99, 113);
+    color: rgb(243, 99, 113);
+}
+
+.tab-content {
+    padding: 0px 0px 100px;
+}
+
+.lessons-content-view{
+    padding: 0;
+}
+
+.title-tab-content {
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 29px;
+    padding-left: 60px;
+}
+
+.divider-left {
+    fill: rgb(1, 162, 166);
+    background: rgb(1, 162, 166);
+    width: 50px;
+    height: 3px;
+    margin: 21px auto 0px 0px;
+    padding: 0px 0px 0px 60px;
+}
+
+.youtube-player{
+    background: #fafbfc !important;
+    padding-left: 60px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.youtube-player figure{
+    height: 0;
+    margin: 30px 0 24px 0;
+    padding-bottom: 56.25%; /* 16:9 */
+    position: relative;
+    width: 90%;
+}
+
+.youtube-player iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.instructor-note{
+    padding-bottom: 25px;
+}
+
+.instructor-title{
+    padding-top: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #2e3d49;
+    padding-left: 60px;
+}
+
+.mark-down-content{
+    font-size: 16px;
+    padding-left: 60px;
+}
