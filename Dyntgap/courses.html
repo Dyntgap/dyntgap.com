@@ -11,7 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/><!-- media-queries -->
 		<link rel="stylesheet" href="css/media-queries.css">
 
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<!-- Fontawesome Icon font -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -47,71 +48,71 @@
         <link href="css/courses-reponsive.css" rel="stylesheet" type="text/css">
 		
 		<!-- ANIMATION DYNTGAP DUCK -->
-    <meta name="authoring-tool" content="Adobe_Animate_CC">
-	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-	<script src="dyntgap_duck.js?1475677766410"></script>
-	<script>
-		var canvas, stage, exportRoot;
-		function init() {
-			canvas = document.getElementById("canvas");
-			images = images||{};
-			var loader = new createjs.LoadQueue(false);
-			loader.addEventListener("fileload", handleFileLoad);
-			loader.addEventListener("complete", handleComplete);
-			loader.loadManifest(lib.properties.manifest);
-		}
-		function handleFileLoad(evt) {
-			if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-		}
-		function handleComplete(evt) {
-			//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-			var queue = evt.target;
-			var ssMetadata = lib.ssMetadata;
-			for(i=0; i<ssMetadata.length; i++) {
-				ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-			}
-			exportRoot = new lib.dyntgap_duck();
-			stage = new createjs.Stage(canvas);
-			stage.addChild(exportRoot);
-			//Registers the "tick" event listener.
-			createjs.Ticker.setFPS(lib.properties.fps);
-			createjs.Ticker.addEventListener("tick", stage);
-			//Code to support hidpi screens and responsive scaling.
-			(function(isResp, respDim, isScale, scaleType) {
-				var lastW, lastH, lastS=1;
-				window.addEventListener('resize', resizeCanvas);
-				resizeCanvas();
-				function resizeCanvas() {
-					var w = lib.properties.width, h = lib.properties.height;
-					var iw = window.innerWidth, ih=window.innerHeight;
-					var pRatio = window.devicePixelRatio, xRatio=iw/w, yRatio=ih/h;
-					var sRatio = 1;
-					if(isResp) {
-						if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
-							sRatio = lastS;
-						}
-						else if(!isScale) {
-							if(iw<w || ih<h)
-								sRatio = Math.min(xRatio, yRatio);
-						}
-						else if(scaleType==1) {
-							sRatio = Math.min(xRatio, yRatio);
-						}
-						else if(scaleType==2) {
-							sRatio = Math.max(xRatio, yRatio);
-						}
-					}
-					canvas.width = w*pRatio*sRatio;
-					canvas.height = h*pRatio*sRatio;
-					canvas.style.width = w*sRatio+'px';
-					canvas.style.height = h*sRatio+'px';
-					stage.scaleX = pRatio*sRatio;
-					stage.scaleY = pRatio*sRatio;
-					lastW = iw; lastH = ih; lastS = sRatio;
-				}
-			})(true,'both',false,1);
-		}
-	</script>
+        <meta name="authoring-tool" content="Adobe_Animate_CC">
+        <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+        <script src="dyntgap_duck.js?1475677766410"></script>
+        <script>
+            var canvas, stage, exportRoot;
+            function init() {
+                canvas = document.getElementById("canvas");
+                images = images||{};
+                var loader = new createjs.LoadQueue(false);
+                loader.addEventListener("fileload", handleFileLoad);
+                loader.addEventListener("complete", handleComplete);
+                loader.loadManifest(lib.properties.manifest);
+            }
+            function handleFileLoad(evt) {
+                if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+            }
+            function handleComplete(evt) {
+                //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+                var queue = evt.target;
+                var ssMetadata = lib.ssMetadata;
+                for(i=0; i<ssMetadata.length; i++) {
+                    ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+                }
+                exportRoot = new lib.dyntgap_duck();
+                stage = new createjs.Stage(canvas);
+                stage.addChild(exportRoot);
+                //Registers the "tick" event listener.
+                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.addEventListener("tick", stage);
+                //Code to support hidpi screens and responsive scaling.
+                (function(isResp, respDim, isScale, scaleType) {
+                    var lastW, lastH, lastS=1;
+                    window.addEventListener('resize', resizeCanvas);
+                    resizeCanvas();
+                    function resizeCanvas() {
+                        var w = lib.properties.width, h = lib.properties.height;
+                        var iw = window.innerWidth, ih=window.innerHeight;
+                        var pRatio = window.devicePixelRatio, xRatio=iw/w, yRatio=ih/h;
+                        var sRatio = 1;
+                        if(isResp) {
+                            if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+                                sRatio = lastS;
+                            }
+                            else if(!isScale) {
+                                if(iw<w || ih<h)
+                                    sRatio = Math.min(xRatio, yRatio);
+                            }
+                            else if(scaleType==1) {
+                                sRatio = Math.min(xRatio, yRatio);
+                            }
+                            else if(scaleType==2) {
+                                sRatio = Math.max(xRatio, yRatio);
+                            }
+                        }
+                        canvas.width = w*pRatio*sRatio;
+                        canvas.height = h*pRatio*sRatio;
+                        canvas.style.width = w*sRatio+'px';
+                        canvas.style.height = h*sRatio+'px';
+                        stage.scaleX = pRatio*sRatio;
+                        stage.scaleY = pRatio*sRatio;
+                        lastW = iw; lastH = ih; lastS = sRatio;
+                    }
+                })(true,'both',false,1);
+            }
+        </script>
     </head>
 
     <body onload="init();" style="margin:0px;">
@@ -130,6 +131,7 @@
                 <div class="navbar-left">
                     <a href="#" class="navbar-icon">Show/Hide Nav</a>
                 </div>
+                <a class="navbar-brand btn" style="color:white"><strong>DYNTGAP</strong></a>
             </div>
             <div class="center-nav-container">
                     <h1 id="header-title">Welcome to our courses</h1>
@@ -143,51 +145,56 @@
 
         <div class="page-content">
             <ul class="col-md-4 col-xs-8 col-sm-4 lessons-tab-view">
-                <li class="tab-lesson-item tab-lesson-item-active" style="padding-top: 0px">Bài 1: Các đại lượng ngẫu nhiên rời rạc</li>
-                <li class="tab-lesson-item">Bài 2: Phân bổ Poát-Xông</li>
-                <li class="tab-lesson-item">Bài 3: Thống kê</li>
-                <li class="tab-lesson-item">Bài 4: Luật số lớn</li>
-                <li class="tab-lesson-item">Bài 5: Phân bổ nhị thức</li>
-                <li class="tab-lesson-item">Bài 6: Phép thử Bernoulli</li>
-                <li class="tab-lesson-item">Bài 7: Công thức xác suất đầy đủ</li>
-                <li class="tab-lesson-item">Bài 8: Các đại lượng ngẫu nhiên</li>
-                <li class="tab-lesson-item">Bài 9: Công thức cộng xác suất</li>
-                <li class="tab-lesson-item">Bài 10: Biến cố</li>
-                <li class="tab-lesson-item">Bài 11: Công thức nhân xác suất</li>
+                <li class="tab-lesson-item lesson-1 tab-lesson-item-active" style="padding-top: 0px">Bài 1: Các đại lượng ngẫu nhiên rời rạc</li>
+                <li class="tab-lesson-item lesson-2">Bài 2: Phân bổ Poát-Xông</li>
+                <li class="tab-lesson-item lesson-3">Bài 3: Thống kê</li>
+                <li class="tab-lesson-item lesson-4">Bài 4: Luật số lớn</li>
+                <li class="tab-lesson-item lesson-5">Bài 5: Phân bổ nhị thức</li>
+                <li class="tab-lesson-item lesson-6">Bài 6: Phép thử Bernoulli</li>
+                <li class="tab-lesson-item lesson-7">Bài 7: Công thức xác suất đầy đủ</li>
+                <li class="tab-lesson-item lesson-8">Bài 8: Các đại lượng ngẫu nhiên</li>
+                <li class="tab-lesson-item lesson-9">Bài 9: Công thức cộng xác suất</li>
+                <li class="tab-lesson-item lesson-10">Bài 10: Biến cố</li>
+                <li class="tab-lesson-item lesson-11">Bài 11: Công thức nhân xác suất</li>
             </ul>
 
             <div class="col-md-8 col-xs-12 col-sm-8 lessons-content-view">
                 <div class="tab-content tab-content-active">
                     <h2 class="title-tab-content">Các đại lượng ngẫu nhiên rời rạc</h2>
-                    <div class="divider-left"></div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"/>
+                        </div>
+                    </div>
+                    <!--<div class="divider-left"></div>-->
                     <div class="youtube-player">
                         <figure>
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/MZdAzImu4-g" frameborder="0" allowfullscreen></iframe>
                         </figure>
                     </div>
                     <div class="instructor-note">
-                        <h1 class="instructor-title">Welcome to this lesson</h1>
+                        <h1 class="instructor-title">Các công thức cần lưu ý:</h1>
                         <div class="mark-down-content">
                             <p>
-                                - Công thức cộng xác suất: `P(AuuB) = P(A) + P(B) - P(AB)`<br>
+                                - Công thức cộng xác suất:
+                                <p class="math-content">`P(AuuB) = P(A) + P(B) - P(AB)`</p>
                                 - Công thức xác suất đầy đủ: Giả sử `B_(1), B_(2),.., B_(n)` là hệ đầy đủ các biến cố<br>
                                 Xét biến cố A:
-                                <p style="text-align: center">`P(A) = sum_(i=1)^n P(B_(i))*(P(A|B_(i)))`</p>
+                                <p class="math-content">`P(A) = sum_(i=1)^n P(B_(i))*(P(A|B_(i)))`</p>
                                 - Phép thử Bernoulli: Xác suất để trong n phép thử bernoulli biến cố A xuất hiện n lần<br>
-                                <p style="text-align:center">
-                                Kí hiệu:  `P_(n)(m,p)=C_(n)^m * P^m * (1-P)^(n-m) `</p>
+                                <p class="math-content">`P_(n)(m,p)=C_(n)^m * P^m * (1-P)^(n-m) `</p>
                                 - Đại lượng ngẫu nhiên rời rạc:
-                                <p style="text-align: center">Kì vọng:  `EX = sum_(x_(i)p_(i)) = mu`</p>
-                                <p style="text-align: center">Phương sai:  `DX = E(X-mu)^2`</p>
-                                <p style="text-align: center">Độ lệch chuẩn:  `sigma_(x)=sqrt(DX)`</p>
+                                <p class="math-content">`EX = sum_(x_(i)p_(i)) = mu`</p>
+                                <p class="math-content">`DX = E(X-mu)^2`</p>
+                                <p class="math-content">`sigma_(x)=sqrt(DX)`</p>
                                 - Đại lượng ngẫu nhiên rời rạc X ~ Poát Xông (`lambda=k`)
-                                <p style="text-align: center">`P{X}=e^(-lambda)(lambda^k)/(k!)`</p>
+                                <p class="math-content">`P{X}=e^(-lambda)(lambda^k)/(k!)`</p>
                             </p>
                         </div>
                     </div>
 
-                    <div class="fb-comments" data-href="https://www.facebook.com/dyntgap/posts/317811121919721?comment_id=319658528401647" data-width="auto" data-numposts="5"></div>
-
+                    <div class="fb-comment-content">
+                        <div class="fb-comments" data-href="https://www.facebook.com/dyntgap/posts/317811121919721?comment_id=319658528401647" data-width="auto" data-numposts="5"></div>
+                    </div>
                 </div>
 
             </div>
@@ -265,11 +272,69 @@
                 });
 
                 $(".navbar-left").click(function(){
-                    $(".lessons-tab-view").style.display = "none";
-                    $(".lessons-content-view").removeClass("col-md-8");
-                    $(".lessons-content-view").removeClass("col-sm-8");
-                    $(".lessons-content-view").addClass("col-md-12");
+                    if ($(".lessons-tab-view").css("display") == 'inline' || ($(".lessons-tab-view").css("display") == 'block')){
+                        $(".lessons-tab-view").css('display','none');
+                        $(".lessons-content-view").removeClass("col-md-8");
+                        $(".lessons-content-view").removeClass("col-sm-8");
+                        $(".lessons-content-view").addClass("col-md-12");
+                        $(".lessons-content-view").css('padding-left','25px');
+
+                    }
+                    else if($(".lessons-tab-view").css("display") == 'none'){
+                        $(".lessons-tab-view").css('display','inline');
+                        $(".lessons-content-view").removeClass("col-md-12");
+                        $(".lessons-content-view").addClass("col-md-8");
+                        $(".lessons-content-view").addClass("col-sm-8");
+                        $(".lessons-content-view").css('padding-left','0px');
+
+                    }
                 });
+
+                $(".lesson-1").click(function(){
+                    $(".progress-bar").css("width",100/11+"%");
+                    $(".progress-bar").css("background-color","rgb(1, 162, 166)");
+                });
+                $(".lesson-2").click(function(){
+                    $(".progress-bar").css("width",2*100/11+"%");
+                    $(".progress-bar").css("background-color","rgb(1, 162, 166)");
+                });
+                $(".lesson-3").click(function(){
+                    $(".progress-bar").css("width",3*100/11+"%");
+                    $(".progress-bar").css("background-color","rgb(1, 162, 166)");
+                });
+                $(".lesson-4").click(function(){
+                    $(".progress-bar").css("width",4*100/11+"%");
+                    $(".progress-bar").css("background-color","#03A9F4");
+                });
+                $(".lesson-5").click(function(){
+                    $(".progress-bar").css("width",5*100/11+"%");
+                    $(".progress-bar").css("background-color","#03A9F4");
+                });
+                $(".lesson-6").click(function(){
+                    $(".progress-bar").css("width",6*100/11+"%");
+                    $(".progress-bar").css("background-color","#03A9F4");
+                });
+                $(".lesson-7").click(function(){
+                    $(".progress-bar").css("width",7*100/11+"%");
+                    $(".progress-bar").css("background-color","#03A9F4");
+                });
+                $(".lesson-8").click(function(){
+                    $(".progress-bar").css("width",8*100/11+"%");
+                    $(".progress-bar").css("background-color","#9C27B0");
+                });
+                $(".lesson-9").click(function(){
+                    $(".progress-bar").css("width",9*100/11+"%");
+                    $(".progress-bar").css("background-color","#9C27B0");
+                });
+                $(".lesson-10").click(function(){
+                    $(".progress-bar").css("width",10*100/11+"%");
+                    $(".progress-bar").css("background-color","#9C27B0");
+                });
+                $(".lesson-11").click(function(){
+                    $(".progress-bar").css("width",11*100/11+"%");
+                    $(".progress-bar").css("background-color","#4CAF50");
+                });
+
             });
         </script>
 

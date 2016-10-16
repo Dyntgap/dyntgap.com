@@ -1,5 +1,5 @@
 .header {
-    background: white;
+    background: #17234F;
     border-bottom: 1px solid #dbe2e8;
     font-size: 18px;
     box-shadow: inset 0 0 0 0 #dbe2e8, rgba(47, 61, 73, .05);
@@ -33,22 +33,28 @@
 
 .center-nav-container h1 {
     height: 100%;
-    font-size: 25px !important;
+    font-size: 22px !important;
     font-weight: 400 !important;
     margin: 0 !important;
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding-top: 20px;
+    color: white;
 }
 
 .navbar-left {
     float: left !important;
 }
 
+.navbar-brand {
+    padding-top: 20px;
+}
+
 .navbar-icon {
     display: inline-block;
     cursor: pointer;
+    color: white;
     background: url(../img/courses/icon-hamburger.svg) transparent no-repeat;
     background-position: center;
     position: relative;
@@ -92,10 +98,13 @@
 }
 
 .lessons-tab-view {
+    display: inline;
     text-align: right;
     list-style: none;
     padding-right: 0;
     padding-bottom: 50px;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .tab-lesson-item {
@@ -106,8 +115,8 @@
 
     padding-top: 18px;
     text-transform: capitalize;
-    font-weight: 400;
-    font-size: 18px;
+    /*font-weight: 400;*/
+    /*font-size: 18px;*/
     position: relative;
     padding-right: 20px;
 }
@@ -130,7 +139,7 @@
     padding: 0px 0px 100px;
 }
 
-.lessons-content-view{
+.lessons-content-view {
     padding: 0;
 }
 
@@ -151,14 +160,14 @@
     padding: 0px 0px 0px 60px;
 }
 
-.youtube-player{
+.youtube-player {
     background: #fafbfc !important;
     padding-left: 60px;
     padding-bottom: 10px;
     padding-top: 10px;
 }
 
-.youtube-player figure{
+.youtube-player figure {
     height: 0;
     margin: 30px 0 24px 0;
     padding-bottom: 56.25%; /* 16:9 */
@@ -175,19 +184,49 @@
     width: 100%;
 }
 
-.instructor-note{
+.instructor-note {
+    font-size: 16px;
+    padding-left: 50px;
     padding-bottom: 25px;
 }
 
-.instructor-title{
-    padding-top: 30px;
-    font-weight: 600;
-    font-size: 18px;
-    color: #2e3d49;
-    padding-left: 60px;
+p {
+    margin-bottom: 0;
 }
 
-.mark-down-content{
-    font-size: 16px;
-    padding-left: 60px;
+.instructor-title {
+    padding-top: 30px;
+    font-weight: 600;
+    font-size: 17px;
+    color: #2e3d49;
+    /*padding-left: 60px;*/
+}
+
+.mark-down-content {
+    /*font-size: 16px;*/
+    /*padding-left: 60px;*/
+}
+
+.fb-comment-content {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.math-content {
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    font-size: 15px;
+}
+
+.progress {
+    height: 3px;
+    background: #fff;
+    box-shadow: inset 0 0 0 #fff;
+    margin-bottom: 0px;
+}
+
+.progress-bar{
+    width: 10%;
+    background-color: rgb(1, 162, 166);;
 }

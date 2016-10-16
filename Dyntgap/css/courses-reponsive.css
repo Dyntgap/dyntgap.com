@@ -1,5 +1,22 @@
+@media screen and (max-width: 1024px) {
+    .lessons-tab-view {
+        font-size: 17px;
+    }
 
-@media screen and (max-width: 768px){
+    .title-tab-content {
+        font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .center-nav-container h1 {
+        font-size: 22px;
+    }
+
+    .instructor-note {
+        padding-left: 20px;
+    }
+
     .lessons-tab-view {
         text-align: left;
         padding-left: 30px;
@@ -32,7 +49,22 @@
         border-right-style: none;
     }
 
-    .page-content{
+    .page-content {
         padding-top: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title-tab-content {
+        font-size: 21px;
+        padding-left: 10px;
+    }
+
+    .instructor-note {
+        padding-left: 10px;
+    }
+
+    .math-content {
+        font-size: 14px;
     }
 }
