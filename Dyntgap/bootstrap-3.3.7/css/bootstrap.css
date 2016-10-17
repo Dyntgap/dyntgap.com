@@ -4152,10 +4152,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     border-bottom-color: #fff;
   }
 }
-.tab-content > .tab-pane {
+.tab-content-signal-system > .tab-pane {
   display: none;
 }
-.tab-content > .active {
+.tab-content-signal-system > .active {
   display: block;
 }
 .nav-tabs .dropdown-menu {

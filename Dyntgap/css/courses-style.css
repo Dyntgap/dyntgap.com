@@ -135,8 +135,20 @@
     color: rgb(243, 99, 113);
 }
 
-.tab-content {
-    padding: 0px 0px 100px;
+.tab-content-probability-math {
+    padding: 0px 0px 0px;
+}
+
+.tab-content-signal-system {
+    padding: 0px 0px 0px;
+}
+
+.lesson-content-detail{
+    margin-bottom: 100px;
+}
+
+.tab-content-signal-system .lesson-content-detail{
+    display: none;
 }
 
 .lessons-content-view {
